@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>小白安装git和Hexo | langye123的小屋</title><meta name="author" content="langye123"><meta name="copyright" content="langye123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装Hexo你可以先创建一个文件夹MyBlog，用来存放自己的博客文件，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。 比如我的博客文件都存放在D:\Study\MyBlog目录下。 在该目录下右键点击Git Bash Here，打开git的控制台窗口，以后我们所有的操作都在git控制台进行，就不用Windows自带的cmd了。 定位到该目录下，输入npm instal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白安装git和Hexo">
+<meta property="og:url" content="http://example.com/2024/03/21/%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85git%E5%92%8CHexo/index.html">
+<meta property="og:site_name" content="langye123的小屋">
+<meta property="og:description" content="安装Hexo你可以先创建一个文件夹MyBlog，用来存放自己的博客文件，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。 比如我的博客文件都存放在D:\Study\MyBlog目录下。 在该目录下右键点击Git Bash Here，打开git的控制台窗口，以后我们所有的操作都在git控制台进行，就不用Windows自带的cmd了。 定位到该目录下，输入npm instal">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/36f1c8882fad4d25ba54dbacb2d00bf3.png">
+<meta property="article:published_time" content="2024-03-21T08:04:28.000Z">
+<meta property="article:modified_time" content="2024-07-14T08:30:01.733Z">
+<meta property="article:author" content="langye123">
+<meta property="article:tag" content="个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"><link rel="shortcut icon" href="/image/xuanzhuandeshuilangbeijinghua4041924.jpg"><link rel="canonical" href="http://example.com/2024/03/21/%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85git%E5%92%8CHexo/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '小白安装git和Hexo',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-14 16:30:01'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/77777777.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="langye123的小屋"><img class="site-icon" src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"/><span class="site-name">langye123的小屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">小白安装git和Hexo</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-21T08:04:28.000Z" title="发表于 2024-03-21 16:04:28">2024-03-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-14T08:30:01.733Z" title="更新于 2024-07-14 16:30:01">2024-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="小白安装git和Hexo"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h1><p>你可以先创建一个文件夹MyBlog，用来存放自己的博客文件，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
+<p>比如我的博客文件都存放在D:\Study\MyBlog目录下。</p>
+<p>在该目录下右键点击Git Bash Here，打开git的控制台窗口，以后我们所有的操作都在git控制台进行，就不用Windows自带的cmd了。</p>
+<p>定位到该目录下，输入<a name="_hlk161739177"></a>npm install -g hexo-cli安装Hexo。               </p>
+<h2 id="为什么要在这个文件夹下面来创建hexo"><a href="#为什么要在这个文件夹下面来创建hexo" class="headerlink" title="为什么要在这个文件夹下面来创建hexo"></a>为什么要在这个文件夹下面来创建hexo</h2><p><strong>全局安装只是确保你可以在任何地方使用 Hexo 的命令行界面，但是在实际使用 Hexo 时，你仍然需要在你的博客文件夹中进行相关操作。</strong></p>
+<p><strong>定位到文件夹下的目的是为了告诉 Hexo 在哪个文件夹中生成博客网站。Hexo 是基于文件夹的静态网站生成器，它会根据当前所在的文件夹中的配置文件和内容来生成博客网站。因此，为了让 Hexo 正确地生成你的博客，你需要先进入存放博客文件的文件夹，在该文件夹中执行 Hexo 相关的命令，从而确保博客内容可被正确生成和发布。</strong></p>
+<p><strong>总结起来，全局安装 Hexo 的命令行界面只是确保你可以在全局的任何地方使用 Hexo 命令，而定位到文件夹下是为了在指定的博客文件夹中进行具体的 Hexo 操作，以生成和管理博客网站。</strong></p>
+<h2 id="npm-install-g-hexo-cli安装Hexo报错。"><a href="#npm-install-g-hexo-cli安装Hexo报错。" class="headerlink" title="npm install -g hexo-cli安装Hexo报错。"></a><strong>npm install -g hexo-cli安装Hexo报错。</strong></h2><p><strong>$ npm install -g hexo-cli</strong></p>
+<p><strong>npm ERR! code EPERM</strong></p>
+<p><strong>npm ERR! syscall mkdir</strong></p>
+<p><strong>npm ERR! path D:\nodejs\node_cache\_cacache</strong></p>
+<p><strong>npm ERR! errno -4048</strong></p>
+<p><strong>npm ERR! Error: EPERM: operation not permitted, mkdir ‘D:\nodejs\node_cache\_cacache’</strong></p>
+<p><strong>npm ERR!  [Error: EPERM: operation not permitted, mkdir ‘D:\nodejs\node_cache\_cacache’] {</strong></p>
+<p><strong>npm ERR!   errno: -4048,</strong></p>
+<p><strong>npm ERR!   code: ‘EPERM’,</strong></p>
+<p><strong>npm ERR!   syscall: ‘mkdir’,</strong></p>
+<p><strong>npm ERR!   path: ‘D:\nodejs\<a name="_hlk161739480"></a>node_cache\_cacache’</strong></p>
+<p><strong>npm ERR! }</strong></p>
+<p><strong>npm ERR!</strong></p>
+<p><strong>npm ERR! The operation was rejected by your operating system.</strong></p>
+<p><strong>npm ERR! It’s possible that the file was already in use (by a text editor or antivirus),</strong></p>
+<p><strong>npm ERR! or that you lack permissions to access it.</strong></p>
+<p><strong>npm ERR!</strong></p>
+<p><strong>npm ERR! If you believe this might be a permissions issue, please double-check the</strong></p>
+<p><strong>npm ERR! permissions of the file and its containing directories, or try running</strong></p>
+<p><strong>npm ERR! the command again as root&#x2F;Administrator.</strong></p>
+<p><strong>npm ERR! Log files were not written due to an error writing to the directory: D:\nodejs\node_cache\_logs</strong></p>
+<p>npm ERR! You can rerun the command with <code>--loglevel=verbose</code> to see the logs in your terminal</p>
+<p><a name="_hlk161739652"></a>	</p>
+<h3 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h3><p><strong>意思是权限不够</strong></p>
+<p>这个错误通常是由于权限问题或者其他进程正在使用相关文件所导致的。有几种可能的解决方法：</p>
+<p>1. 以管理员身份运行命令提示符：右键点击命令提示符符号，然后选择“以管理员身份运行”选项。接下来再尝试运行 <code>npm install -g hexo-cli</code> 命令看是否能够解决问题。</p>
+<p>2. 使用 <code>sudo</code> 运行命令（仅适用于 macOS 和 Linux 用户）：在命令前添加 <code>sudo</code>，即 <code>sudo npm install -g hexo-cli</code>。这将使用管理员权限来运行命令。</p>
+<p>3. 检查文件权限：确保你具有对所涉及的目录和文件的写入权限，以及没有其他进程正在使用文件。特别是要注意杀毒软件或防火墙等安全软件是否导致了文件被锁定。</p>
+<p>请尝试这些方法来解决权限问题，并让我知道是否成功。如果问题仍然存在，请提供更多详细信息，以便我能够提供更准确的建议。	</p>
+<h3 id="解决方法及结果"><a href="#解决方法及结果" class="headerlink" title="解决方法及结果"></a><strong>解决方法及结果</strong></h3><p>修改了node_cache文件夹的权限成功部署Hexo</p>
+<p><strong>$ npm install -g hexo-cli</strong></p>
+<p><strong>added 54 packages in 7s</strong></p>
+<p><strong>15 packages are looking for funding</strong></p>
+<p><code>  </code><strong>run <code>npm fund</code> for details</strong></p>
+<p><strong>npm notice</strong></p>
+<p><strong>npm notice New minor version of npm available! 10.2.4 -&gt; 10.5.0</strong></p>
+<p><strong>npm notice Changelog: <a target="_blank" rel="noopener" href="https://github.com/npm/cli/releases/tag/v10.5.0">https://github.com/npm/cli/releases/tag/v10.5.0</a></strong></p>
+<p><strong>npm notice Run <code>npm install -g npm@10.5.0</code> to update!</strong></p>
+<p><strong>npm notice</strong></p>
+<p>**</p>
+<h3 id="输入-hexo-v找不到"><a href="#输入-hexo-v找不到" class="headerlink" title="输入 hexo -v找不到"></a><strong>输入 hexo -v找不到</strong></h3><p>$ hexo -v</p>
+<p>bash: hexo: command not found</p>
+<p>发现可能是npm的环境变量未设置，我也是服了</p>
+<h3 id="成功配置找到hexo"><a href="#成功配置找到hexo" class="headerlink" title="成功配置找到hexo"></a><strong>成功配置找到hexo</strong></h3><p>原因我在node.js中修改了配置文件并没有在环境变量中设置它</p>
+<h1 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a><strong>初始化hexo</strong></h1><p>$ hexo init</p>
+<p>INFO  Cloning hexo-starter <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter.git">https://github.com/hexojs/hexo-starter.git</a></p>
+<p>INFO  Install dependencies</p>
+<p>INFO  Start blogging with Hexo!</p>
+<h1 id="hexo-g-生成静态文件-hexo-s启动服务端"><a href="#hexo-g-生成静态文件-hexo-s启动服务端" class="headerlink" title="hexo-g 生成静态文件 hexo-s启动服务端"></a><strong>hexo-g 生成静态文件 hexo-s启动服务端</strong></h1><p>hexo g其中的g代表generate生成静态文件</p>
+<p>其中的hexo-s中service是服务端</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="Git设置用户名和邮箱"><a href="#Git设置用户名和邮箱" class="headerlink" title="Git设置用户名和邮箱"></a><strong>Git设置用户名和邮箱</strong></h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a><strong>目的</strong></h2><p>是为了在传输到githup上区分谁传的</p>
+<p>langye@LAPTOP-D48FO80D MINGW64 &#x2F;d&#x2F;MyBlog</p>
+<p><a name="_hlk161758030"></a>$ git config –global user.name “langye123”                                     </p>
+<p>langye@LAPTOP-D48FO80D MINGW64 &#x2F;d&#x2F;MyBlog</p>
+<p>$ git config –global user.email “<a href="mailto:&#x32;&#x34;&#48;&#49;&#x30;&#x30;&#52;&#55;&#x37;&#54;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#x32;&#x34;&#48;&#49;&#x30;&#x30;&#52;&#55;&#x37;&#54;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a>“</p>
+<p>langye@LAPTOP-D48FO80D MINGW64 &#x2F;d&#x2F;MyBlog</p>
+<p>$ git config –global –list</p>
+<p>user.name&#x3D;langye123</p>
+<p>user.email&#x3D;<a href="mailto:&#50;&#x34;&#x30;&#49;&#x30;&#x30;&#52;&#x37;&#x37;&#54;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#50;&#x34;&#x30;&#49;&#x30;&#x30;&#52;&#x37;&#x37;&#54;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
+<h2 id="详细讲解"><a href="#详细讲解" class="headerlink" title="详细讲解"></a><strong>详细讲解</strong></h2><p>$ git config –global user.name “langye123” 设置用户名</p>
+<p>$ git config –global user.email “邮箱”</p>
+<p>$ git config –global –list 展示是否成功</p>
+<p>生成密钥</p>
+<h1 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a><strong>生成密钥</strong></h1><p>$ ssh-keygen -t rsa -C “填邮箱地址”</p>
+<p>&#96;</p>
+<h2 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a><strong>两种方法</strong></h2><p>ssh-keygen -t rsa<code>和</code>ssh-keygen -t rsa -C “GitHub 邮箱”<code>之间的区别在于后者使用了</code>-C&#96; 选项来添加注释信息，以便将来能够识别该密钥是用于什么用途。</p>
+<p>具体而言，<code>-C &quot;GitHub 邮箱&quot;</code> 中的邮件地址可以帮助你在管理多个密钥对时更容易地辨识每个密钥对所属的身份。这样可以让你清晰地知道每个密钥对是用于哪个服务或者哪个身份的认证。 </p>
+<p>而如果只是使用<code>ssh-keygen -t rsa</code>，生成的密钥对就没有附带任何注释信息。这可能会使得在管理多个密钥对时变得不够清晰，因为无法通过注释来区分不同的密钥对所属的身份。</p>
+<p><strong>用于提交的时候识别是不是本人的后续有一次报错因为把自己的邮箱隐藏了但是</strong></p>
+<p><strong>$ ssh-keygen -t rsa -C “填邮箱地址”</strong></p>
+<p><strong>填的还是它</strong></p>
+<h1 id="看看是否连接到Githup"><a href="#看看是否连接到Githup" class="headerlink" title="看看是否连接到Githup"></a><strong>看看是否连接到Githup</strong></h1><p>$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
+<p>The authenticity of host ‘github.com (20.205.243.166)’ can’t be established.</p>
+<p>ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF&#x2F;zLDA0zPMSvHdkr4UvCOqU.</p>
+<p>This key is not known by any other names.</p>
+<p>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes</p>
+<p>Warning: Permanently added ‘github.com’ (ED25519) to the list of known hosts.</p>
+<p>Hi langye123! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>成功</p>
+<h1 id="config-yml目录下修改配置"><a href="#config-yml目录下修改配置" class="headerlink" title="_config.yml目录下修改配置"></a><strong>_config.yml目录下修改配置</strong></h1><p><a name="_hlk161761804"></a>_config.yml目录下修改配置<br>deploy:<br><code>  </code>type: git<br><code>  </code>repo: <a target="_blank" rel="noopener" href="https://github.com/langye123/langye123.github.io.git">https://github.com/langye123/langye123.github.io.git</a><br><code>  </code>branch: main</p>
+<p>类型：git</p>
+<p>仓库：<a target="_blank" rel="noopener" href="https://github.com/langye123/langye123.github.io.git">https://github.com/langye123/langye123.github.io.git</a></p>
+<p>分支：main</p>
+<p>用http会造成登录github账号</p>
+<p>改成这个了之前用Http报错。</p>
+<p>deploy:<br><code>  </code>type: git<br><code>  </code>repo: <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:langye123&#x2F;langye123.github.io.git<br><code>  </code>branch: main</p>
+<p>这段文字中包含了关于 Git 仓库的信息，指明了仓库的类型是 Git，仓库地址为 <a target="_blank" rel="noopener" href="https://github.com/langye123/langye123.github.io.git%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E5%88%86%E6%94%AF%E6%98%AF">https://github.com/langye123/langye123.github.io.git，使用的分支是</a> main。如果需要进一步解释或有其他问题，请随时告诉我！</p>
+<h1 id="安装-deploy-git。"><a href="#安装-deploy-git。" class="headerlink" title="安装 deploy-git。"></a><strong>安装 deploy-git。</strong></h1><p>安装 deploy-git ，也就是部署的命令，这样你才能用命令部署到 GitHub。</p>
+<p>npm install hexo-deployer-git –save 这条命令是用来在 Hexo 静态网站生成器中安装并保存 hexo-deployer-git 插件的。</p>
+<p>具体来说，hexo-deployer-git 是 Hexo 提供的一个部署插件，它允许你将生成的静态网站文件直接部署到 Git 仓库中，以便实现自动部署并发布网站的功能。一旦安装了这个插件，你就可以使用 Hexo 命令来将生成的静态网站文件快速地推送到指定的 Git 仓库中，方便地更新和管理你的网站内容。</p>
+<p>成功</p>
+<p>$ npm install hexo-deployer-git –save</p>
+<p>added 9 packages, and audited 250 packages in 4s</p>
+<p>29 packages are looking for funding</p>
+<p>run <code>npm fund</code> for details</p>
+<p>found 0 vulnerabilities</p>
+<h1 id="部署快捷键"><a href="#部署快捷键" class="headerlink" title="部署快捷键"></a><strong>部署快捷键</strong></h1><p>exo clean 清除了你之前生成的东西，也可以不加。 </p>
+<p>hexo generate 顾名思义，生成静态文章，可以用 hexo g 缩写 ，</p>
+<p>hexo deploy 部署文章，可以用 hexo d 缩写</p>
+<h1 id="npm-i-hexo-theme-butterfly"><a href="#npm-i-hexo-theme-butterfly" class="headerlink" title="$ npm i hexo-theme-butterfly"></a><strong>$ npm i hexo-theme-butterfly</strong></h1><p>用npm创建butterfly主题定制</p>
+<p>$ npm i hexo-theme-butterfly</p>
+<p>added 46 packages, and audited 296 packages in 11s</p>
+<p>38 packages are looking for funding</p>
+<p><code>  </code>run <code>npm fund</code> for details</p>
+<p>found 0 vulnerabilities</p>
+<h1 id="安装-pug-以及-stylus-的渲染器"><a href="#安装-pug-以及-stylus-的渲染器" class="headerlink" title="安装 pug 以及 stylus 的渲染器"></a><strong>安装 pug 以及 stylus 的渲染器</strong></h1><p>npm install hexo-renderer-pug hexo-renderer-stylus –save</p>
+<p>。</p>
+<h2 id="为啥安装它"><a href="#为啥安装它" class="headerlink" title="为啥安装它"></a><strong>为啥安装它</strong></h2><p>Pug 和 Stylus 是两种用于网页开发的预处理器，它们分别用于 HTML 模板和 CSS 样式表的渲染和生成。</p>
+<p>1. Pug（之前被称为 Jade）：Pug 是一种基于缩进的模板引擎，用于简化 HTML 文档的编写。通过使用 Pug，您可以以更简洁、结构化的方式编写 HTML，并且可以嵌入 JavaScript 代码以及动态生成内容。Pug 文件需要经过渲染处理后才能生成最终的 HTML 页面。</p>
+<p>2. Stylus：Stylus 是一种 CSS 预处理器，它允许您以更灵活、更简洁的方式编写 CSS 样式表。通过使用 Stylus，您可以使用变量、嵌套规则、混合（Mixin）等功能来提高 CSS 的可维护性和可读性。Stylus 文件也需要经过渲染处理后才能生成最终的 CSS 样式表。</p>
+<p>在 Node.js 环境中，通常会使用相关的渲染器（如 <code>pug</code> 和 <code>stylus</code> 模块），来将 Pug 和 Stylus 文件渲染为最终的 HTML 和 CSS 文件，以便在网页中使用。这些渲染器会将 Pug 文件转换为标准的 HTML 文件，将 Stylus 文件转换为标准的 CSS 文件，从而方便在网站中使用这些预处理器所生成的内容。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">langye123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/21/%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85git%E5%92%8CHexo/">http://example.com/2024/03/21/小白安装git和Hexo/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">langye123的小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a></div><div class="post_share"><div class="social-share" data-image="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/image/zhifubao.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/weixin.jpg" target="_blank"><img class="post-qr-code-img" src="/image/weixin.jpg" alt="支付"/></a><div class="post-qr-code-desc">支付</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">我的第一篇博客</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/27/%E6%8A%BD%E8%B1%A1%E7%B1%BB%EF%BC%8C%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="抽象类，接口，构造方法详解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">抽象类，接口，构造方法详解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/07/14/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="博客问题汇总"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-14</div><div class="title">博客问题汇总</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">langye123</div><div class="author-info__description">不喜欢，不值得</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/langye123"><i class="fab fa-github"></i><span>call me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/langye123" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:langye666@139.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">深窥自己的心，而后发觉一切的奇迹在你自己</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">1.</span> <span class="toc-text">安装Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%9C%A8%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E6%9D%A5%E5%88%9B%E5%BB%BAhexo"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要在这个文件夹下面来创建hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install-g-hexo-cli%E5%AE%89%E8%A3%85Hexo%E6%8A%A5%E9%94%99%E3%80%82"><span class="toc-number">1.2.</span> <span class="toc-text">npm install -g hexo-cli安装Hexo报错。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">产生原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">解决方法及结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5-hexo-v%E6%89%BE%E4%B8%8D%E5%88%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">输入 hexo -v找不到</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E6%89%BE%E5%88%B0hexo"><span class="toc-number">1.2.4.</span> <span class="toc-text">成功配置找到hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96hexo"><span class="toc-number">2.</span> <span class="toc-text">初始化hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo-g-%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6-hexo-s%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">hexo-g 生成静态文件 hexo-s启动服务端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1"><span class="toc-number">4.</span> <span class="toc-text">Git设置用户名和邮箱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-number">4.1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3"><span class="toc-number">4.2.</span> <span class="toc-text">详细讲解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5"><span class="toc-number">5.</span> <span class="toc-text">生成密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">两种方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9C%8B%E7%9C%8B%E6%98%AF%E5%90%A6%E8%BF%9E%E6%8E%A5%E5%88%B0Githup"><span class="toc-number">6.</span> <span class="toc-text">看看是否连接到Githup</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#config-yml%E7%9B%AE%E5%BD%95%E4%B8%8B%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">_config.yml目录下修改配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-deploy-git%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">安装 deploy-git。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">9.</span> <span class="toc-text">部署快捷键</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm-i-hexo-theme-butterfly"><span class="toc-number">10.</span> <span class="toc-text">$ npm i hexo-theme-butterfly</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-pug-%E4%BB%A5%E5%8F%8A-stylus-%E7%9A%84%E6%B8%B2%E6%9F%93%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">安装 pug 以及 stylus 的渲染器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E5%AE%89%E8%A3%85%E5%AE%83"><span class="toc-number">11.1.</span> <span class="toc-text">为啥安装它</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/14/ssh%E5%85%AC%E9%92%A5%E6%9B%B4%E6%94%B9%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E6%B7%BB%E5%8A%A0/" title="ssh公钥更改，删除，添加">ssh公钥更改，删除，添加</a><time datetime="2024-07-13T16:00:00.000Z" title="发表于 2024-07-14 00:00:00">2024-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/14/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="博客问题汇总">博客问题汇总</a><time datetime="2024-07-13T16:00:00.000Z" title="发表于 2024-07-14 00:00:00">2024-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/13/%E4%B8%AA%E4%BA%BA%E6%A2%AF%E5%AD%90%E6%90%AD%E5%BB%BA/" title="个人梯子搭建指南">个人梯子搭建指南</a><time datetime="2024-07-12T16:00:00.000Z" title="发表于 2024-07-13 00:00:00">2024-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/13/%E8%BF%81%E7%A7%BBgithup%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="迁移自己博客，从github到自己的服务器">迁移自己博客，从github到自己的服务器</a><time datetime="2024-07-12T16:00:00.000Z" title="发表于 2024-07-13 00:00:00">2024-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/05/SpringBoot%E5%AE%9E%E6%88%98/" title="SpringBoot实战 number2">SpringBoot实战 number2</a><time datetime="2024-07-04T16:00:00.000Z" title="发表于 2024-07-05 00:00:00">2024-07-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/04/SpringBoot3+ssm+spring6/" title="学习SpringBoot3+ssm+spring6三月后疑难点总结">学习SpringBoot3+ssm+spring6三月后疑难点总结</a><time datetime="2024-07-04T08:04:28.000Z" title="发表于 2024-07-04 16:04:28">2024-07-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(91,126,168)"><div id="footer-wrap"><div class="copyright">&copy;2024 By langye123</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://langye123.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'AGI3dysGvfIYIzn7hYDN0x7u-gzGzoHsz',
+      appKey: 'hNVVCVbUPKe5bnZljCguDEeZ',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2024/03/21/%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85git%E5%92%8CHexo/'
+    this.page.identifier = '/2024/03/21/%E5%B0%8F%E7%99%BD%E5%AE%89%E8%A3%85git%E5%92%8CHexo/'
+    this.page.title = '小白安装git和Hexo'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://langye123.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=langye123&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script src="/script/fish.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.8" zIndex="-1" count="200" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>用idea写前端vue spring实战2 | langye123的小屋</title><meta name="author" content="langye123"><meta name="copyright" content="langye123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="配置环境首先必须安装node.js，这个之前已经安装过了，之后用了spring的生成器，用来快速构建spring，之后在控制端用了npm install -g create-vue这个是成功了但是用create-vue的时候失败了之后用npm init vue@latest成功，就是这个最后在构建模块把前端的模块变成和后端一样。 两个构建方式有什么不同create-vue 全局安装：需要先通过 n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用idea写前端vue spring实战2">
+<meta property="og:url" content="http://example.com/2024/07/04/%E7%94%A8idea%E5%86%99%E5%89%8D%E7%AB%AFvue/index.html">
+<meta property="og:site_name" content="langye123的小屋">
+<meta property="og:description" content="配置环境首先必须安装node.js，这个之前已经安装过了，之后用了spring的生成器，用来快速构建spring，之后在控制端用了npm install -g create-vue这个是成功了但是用create-vue的时候失败了之后用npm init vue@latest成功，就是这个最后在构建模块把前端的模块变成和后端一样。 两个构建方式有什么不同create-vue 全局安装：需要先通过 n">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/36f1c8882fad4d25ba54dbacb2d00bf3.png">
+<meta property="article:published_time" content="2024-07-04T08:04:28.000Z">
+<meta property="article:modified_time" content="2024-07-14T09:14:54.163Z">
+<meta property="article:author" content="langye123">
+<meta property="article:tag" content="Spring6">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="实战">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"><link rel="shortcut icon" href="/image/xuanzhuandeshuilangbeijinghua4041924.jpg"><link rel="canonical" href="http://example.com/2024/07/04/%E7%94%A8idea%E5%86%99%E5%89%8D%E7%AB%AFvue/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '用idea写前端vue spring实战2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-14 17:14:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/77777777.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="langye123的小屋"><img class="site-icon" src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"/><span class="site-name">langye123的小屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">用idea写前端vue spring实战2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-04T08:04:28.000Z" title="发表于 2024-07-04 16:04:28">2024-07-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-14T09:14:54.163Z" title="更新于 2024-07-14 17:14:54">2024-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/java/">java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>22分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="用idea写前端vue spring实战2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>首先必须安装node.js，这个之前已经安装过了，之后用了spring的生成器，用来快速构建spring，<br>之后在控制端用了npm install -g create-vue这个是成功了但是用create-vue的时候失败了<br>之后用npm init vue@latest成功，就是这个<br>最后在构建模块把前端的模块变成和后端一样。</p>
+<h3 id="两个构建方式有什么不同"><a href="#两个构建方式有什么不同" class="headerlink" title="两个构建方式有什么不同"></a>两个构建方式有什么不同</h3><p>create-vue</p>
+<p>全局安装：需要先通过 npm install -g create-vue 全局安装。<br>命令简洁：安装后可以直接使用 create-vue 命令创建项目。<br>基于 Vite：创建的项目默认使用 Vite 作为构建工具。</p>
+<p>npm init vue@latest</p>
+<p>无需全局安装：直接使用 npm init vue@latest 命令，无需预先安装其他工具。<br>交互式配置：命令执行后，会进入一个交互式的配置界面，允许你选择项目的各种配置选项2。<br>基于 Vite：同样使用 Vite 作为构建工具。</p>
+<h3 id="什么是vite"><a href="#什么是vite" class="headerlink" title="什么是vite"></a>什么是vite</h3><p>Vite（法语意为 “快速的”，发音 &#x2F;vit&#x2F;，发音同 “veet”）是一种新型前端构建工具，旨在显著提升前端开发体验12。</p>
+<figure class="highlight plaintext"><figcaption><span>“快速的”，发音</span><a href="/vit/，发音同">“veet”）是一种新型前端构建工具，旨在显著提升前端开发体验12。</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">主要特点</span><br><span class="line">极速的服务启动：使用原生 ES 模块文件，无需打包，启动速度极快2。</span><br><span class="line">模块热更新（HMR）：提供快速的模块热替换，无论应用程序大小如何，都能保持极快的热重载2。</span><br><span class="line">丰富的功能：对 TypeScript、JSX、CSS 等支持开箱即用2。</span><br><span class="line">优化的构建：使用 Rollup 打包代码，输出高度优化的静态资源1。</span><br><span class="line">插件 API：提供灵活的插件 API 和 JavaScript API，带来高度的可扩展性1。</span><br></pre></td></tr></table></figure>
+<h2 id="vue3前置工作"><a href="#vue3前置工作" class="headerlink" title="vue3前置工作"></a>vue3前置工作</h2><p>安装完之后用已经得到了基本的vue3基本框架，接下来把它的初始页面删了，留下空白面板，接下来用到vue3的框架<code>element-plus</code>框架快速构建vue3<br>然后再安装vue-axios两者的具体命令为 <code>npm install element-plus --save</code>和<code>npm install vue-axios --save</code></p>
+<p>下面是两者的具体介绍</p>
+<p>Element Plus：<br>Element Plus 是一个基于 Vue 3 的高质量 UI 组件库12。它提供了丰富的组件，如表格、表单、按钮、导航、通知等，帮助开发者快速构建高质量的 Web 应用3。</p>
+<p>vue-axios：<br>vue-axios 是一个将 axios 集成到 Vue.js 中的小型封装库。axios 是一个基于 promise 的 HTTP 客户端，用于向 API 发送请求并处理响应数据6。</p>
+<h3 id="ElementPlusResolver按需自动导入配置插件"><a href="#ElementPlusResolver按需自动导入配置插件" class="headerlink" title="ElementPlusResolver按需自动导入配置插件"></a>ElementPlusResolver按需自动导入配置插件</h3><p>首先全局安装了插件<code>npm install -D unplugin-vue-components unplugin-auto-import</code>之两个插件详情在<code>https://element-plus.org/zh-CN/guide/quickstart.html</code><br>我这里出现错误记得把前面的导入也导一下,</p>
+<h2 id="jsp与vue3的区别"><a href="#jsp与vue3的区别" class="headerlink" title="jsp与vue3的区别"></a>jsp与vue3的区别</h2><p>我写页面用jsp习惯了，但是好像jsp页面被淘汰了，现在vue页面已经是主流了<br>下面是两者的详细解释</p>
+<p>目前，Vue 在前端开发中比 JSP 更受欢迎，尤其是在构建现代化的单页面应用（SPA）时¹²。Vue 提供了更好的用户体验和开发效率，支持组件化开发和前后端分离，这使得它在前端开发者中广受欢迎¹²。</p>
+<p>JSP 主要用于传统的 Java Web 开发，虽然在一些老旧项目中仍然使用，但新项目中使用 JSP 的情况已经大大减少¹²。</p>
+<p>原来我已经落伍了，</p>
+<h2 id="如上文所说我又安装-axios"><a href="#如上文所说我又安装-axios" class="headerlink" title="如上文所说我又安装 axios"></a>如上文所说我又安装 axios</h2><p><code>npm install axios</code></p>
+<p>这个插件主要是为了，浏览器无缝链接后端，处理http请求，无缝链接的框架又，vue，rest等，具体介绍，所示</p>
+<ul>
+<li>Axios 是一个基于 Promise 的 JavaScript HTTP 库，主要用于浏览器和 Node.js 环境中的客户端应用。它的主要作用是提供一个简单、统一的方式来发送 HTTP 请求，并处理响应。Axios 支持浏览器和 Node.js 中的同步和异步请求，可以与各种现有的框架（如 Vue.js、React、Angular 等）无缝集成。</li>
+</ul>
+<blockquote>
+<p>以下是 Axios 的一些关键特性：</p>
+<ol>
+<li><p><strong>Promise-based</strong>: Axios 返回的是一个 Promise 对象，可以使用 <code>.then()</code> 和 <code>.catch()</code> 来处理成功和错误响应。</p>
+</li>
+<li><p><strong>跨域支持</strong>: 它内置了对 CORS（跨源资源共享）的支持，可以在发送请求时自动添加必要的头信息。</p>
+</li>
+<li><p><strong>转换请求和响应数据</strong>: Axios 可以自动转换 JSON 数据，支持配置请求和响应的数据格式（如 JSON、XML、Form Data 等）。</p>
+</li>
+<li><p><strong>拦截器</strong>: Axios 提供了全局请求和响应拦截器，允许你在发送请求前或响应返回后执行自定义逻辑。</p>
+</li>
+<li><p><strong>取消请求</strong>: 可以通过 <code>cancel</code> 方法取消正在执行的请求。</p>
+</li>
+<li><p><strong>并发请求管理</strong>: 支持批量请求和取消批量请求，可以控制并发请求的数量。</p>
+</li>
+</ol>
+</blockquote>
+<p><strong>Axios</strong> 是一个基于 Promise 的 HTTP 客户端库，可以在浏览器和 Node.js 中使用。它独立于任何框架，可以在各种前端项目中使用¹²。</p>
+<p><strong>vue-axios</strong> 是一个将 Axios 集成到 Vue.js 的包装器。它允许你像插件一样安装和使用 Axios，从而简化了在 Vue 组件中使用 Axios 的过程³⁴。具体来说，vue-axios 使得你不需要在每个组件中单独导入 Axios，而是可以通过 <code>this.$http</code> 或 <code>this.axios</code> 直接访问³。</p>
+<p>总结一下：</p>
+<ul>
+<li><strong>Axios</strong>：独立库，适用于各种前端项目。</li>
+<li><strong>vue-axios</strong>：Vue.js 插件，简化了在 Vue 项目中使用 Axios 的过程。</li>
+</ul>
+<h2 id="Element-Plus框架自带表单检验功能"><a href="#Element-Plus框架自带表单检验功能" class="headerlink" title="Element Plus框架自带表单检验功能"></a>Element Plus框架自带表单检验功能</h2><p>把表单里的内容框放在&lt;el -from&gt;表单里，<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form :model=&quot;form&quot; :rules=&quot;rules&quot;&gt;</span><br><span class="line">         &lt;el-form-item prop=&quot;username&quot;&gt;</span><br><span class="line">             &lt;el-input v-model=&quot;form.username&quot; style=&quot;width: 400px;margin-left: 45px ;margin-top: 15px&quot; type=&quot;text&quot; placeholder=&quot;请输入用户名&quot;  &gt;</span><br><span class="line">             &lt;template #prefix&gt;</span><br><span class="line">         &lt;el-icon&gt;&lt;User/&gt;&lt;/el-icon&gt;</span><br><span class="line">           &lt;/template&gt;</span><br><span class="line">           &lt;/el-input&gt;</span><br><span class="line">     &lt;/el-form-item&gt;&#125;  </span><br></pre></td></tr></table></figure><br>下面是具体的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const validateUsername= (rule, value, callback) =&gt; &#123;</span><br><span class="line">  if (value === &#x27;&#x27;) &#123;</span><br><span class="line">    callback(new Error(&#x27;请输入用户名&#x27;))</span><br><span class="line">  &#125; else if(!/^(?:(?=[\u4e00-\u9fa5])[\u4e00-\u9fa5]*|(?=[a-zA-Z])[a-zA-Z]*)$/.test(value))&#123;</span><br><span class="line">    callback(new Error(&quot;用户名只能为中文或者英文&quot;))</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    callback()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面的代码定义了validateUsername的函数创建判断规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const rules=</span><br><span class="line">      &#123;</span><br><span class="line">        username: [</span><br><span class="line">          &#123; validator:validateUsername, trigger: [&#x27;blur&#x27;,&#x27;change&#x27;] &#125;,</span><br><span class="line">          &#123; min: 3, max: 15, message: &#x27;长度为3-15&#x27;, trigger: &#x27;blur&#x27; &#125;,</span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码引用了username就是<strong>prop</strong>，另外还有rules规则。<br>注意其中的validator指定了一个函数这个函数会在特定的事件（如输入框失去焦点或内容改变）触发时执行，</p>
+<h2 id="验证邮箱是否合法-是否展示获取验证码按钮出现"><a href="#验证邮箱是否合法-是否展示获取验证码按钮出现" class="headerlink" title="验证邮箱是否合法-是否展示获取验证码按钮出现"></a>验证邮箱是否合法-是否展示获取验证码按钮出现</h2><p><code> &lt;el-button type=&quot;primary&quot; style=&quot; margin-top: 10px&quot; :disabled=&quot;!isEmailValid&quot;&gt;获取验证码&lt;/el-button&gt;</code><br>上面的 :disabled</p>
+<p>用于控制元素的禁用状态。它的值是一个布尔表达式，当表达式的值为 true 时，元素会被禁用；当值为 false 时，元素会被启用<br><code>&lt;el-form :model=&quot;form&quot; :rules=&quot;rules&quot; @validate=&quot;onValidate&quot;&gt;</code><br>上面的@validate动态绑定了<strong>表单</strong>里面的所有的prop都要验证<br>并且声明了<code>const isEmailValid= ref (false)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const onValidate =(prop,isValid)=&gt;&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  if (prop===&#x27;email&#x27;)</span><br><span class="line">    isEmailValid.value=isValid</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>总的来说@validate&#x3D;”onValidate”每次验证都会调用一次，假设验证的是email，注意看如果email验证通过，那么isVaild为true<br>那么prop email,isVaild true,被带入，if语句会成功，isEmailValid会被设置为true。那么:disabled&#x3D;的语句是真就禁用，又加上 ！isEmailValid会被设置为false，为假。不禁用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    type: &#x27;email&#x27;,</span><br><span class="line">    message: &#x27;请输入合法的邮箱地址&#x27;,</span><br><span class="line">    trigger: [&#x27;blur&#x27;, &#x27;change&#x27;],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &#123; required: true, message: &#x27;请输入邮箱地址&#x27;, trigger: [&#x27;blur&#x27;,&#x27;change&#x27;] &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>规则里面的是blur，和changge。意思是他聚焦和改变了，就验证，required是否必须验证</p>
+<h3 id="验证表单所有框全部正确，Element-Plus，表单提供了一个validate"><a href="#验证表单所有框全部正确，Element-Plus，表单提供了一个validate" class="headerlink" title="验证表单所有框全部正确，Element Plus，表单提供了一个validate"></a>验证表单所有框全部正确，Element Plus，表单提供了一个validate</h3><p>在表单上加上引用组件 <code>&lt;el-form :model=&quot;form&quot; :rules=&quot;rules&quot; @validate=&quot;onValidate&quot; ref=&quot;formRef&quot;&gt;</code><br>ref&#x3D;   自定义<br>它的目的是访问和操作表单组件实例，进行验证<br>在script里面加上<br><code> const formRef=ref()</code></p>
+<p>在立即注册的按钮上加上<code>&lt;el-button style=&quot;width: 270px ;margin-left: 80px&quot; type=&quot;warning&quot; @click=&quot;register()&quot;&gt;立即注册&lt;/el-button&gt;</code><br>click函数<br>注册调用 formRef.value.validate操作表单进行验证isValid是否为真</p>
+<figure class="highlight plaintext"><figcaption><span>register </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    formRef.value.validate((isValid)=&gt;&#123;</span><br><span class="line">      if (isValid)&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      &#125;else &#123;</span><br><span class="line">        ElMessage.warning(&quot;请填写完整表单&quot;)</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义校验规则"><a href="#自定义校验规则" class="headerlink" title="自定义校验规则"></a>自定义校验规则</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    const validatePassword_repeat = (rule, value, callback) =&gt; &#123;</span><br><span class="line">      if (value === &#x27;&#x27;) &#123;</span><br><span class="line">        callback(new Error(&#x27;请再次确认密码&#x27;))</span><br><span class="line">      &#125; else if (value !== form.password) &#123;</span><br><span class="line">        callback(new Error(&quot;两次密码不同&quot;))</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        callback()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const rules=&#123;</span><br><span class="line">        password_repeat:[</span><br><span class="line">        </span><br><span class="line">            &#123; validator:validatePassword_repeat, trigger: [&#x27;blur&#x27;,&#x27;change&#x27;] &#125;,</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">          ],</span><br><span class="line">          &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面自定义自定义的验证函数，用于验证两次输入的密码是否一致。<br>上面的3个参数为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rule：验证规则对象，通常包含验证的相关信息。</span><br><span class="line">value：当前输入框的值，即用户输入的内容。</span><br><span class="line">callback：回调函数，用于返回验证结果。</span><br></pre></td></tr></table></figure>
+
+<p>callback()</p>
+<p>函数用于返回验证结果。它接受一个参数，如果传递的是 Error 对象，则表示验证失败；如果不传递参数或传递 null，则表示验证通过。</p>
+<p>trigger 指定了验证触发的时机，这里是 blur（失去焦点）和 change（值改变）时触发验证。</p>
+<h2 id="Element-UI-组件"><a href="#Element-UI-组件" class="headerlink" title="Element UI 组件"></a>Element UI 组件</h2><h3 id="步骤条"><a href="#步骤条" class="headerlink" title="步骤条"></a>步骤条</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-steps style=&quot;max-width: 600px&quot; :active=&quot;active&quot; finish-status=&quot;success&quot;&gt;</span><br><span class="line">    &lt;el-step title=&quot;Step 1&quot; /&gt;</span><br><span class="line">    &lt;el-step title=&quot;Step 2&quot; /&gt;</span><br><span class="line">    &lt;el-step title=&quot;Step 3&quot; /&gt;</span><br><span class="line">  &lt;/el-steps&gt;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>加在<template> 里面 </template><br>最少的步骤条为2，也就是从0,1开始,需要定宽的步骤条时，设置 space 属性即可,里面有好多用法，具体你可以看Element的官网。<br>这里只讲，本实战用到的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-steps style=&quot;max-width: 600px&quot; :active=&quot;active&quot; finish-status=&quot;success&quot;&gt;</span><br><span class="line">          &lt;el-step title=&quot;验证电子邮件&quot; /&gt;</span><br><span class="line">          &lt;el-step title=&quot;修改密码&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/el-steps&gt;</span><br></pre></td></tr></table></figure>
+<p>可以在里面设置中文</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-if=&quot;active===0&quot;&gt;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>通过 v-if可以展示或则隐藏，v-if指令可以用于隐藏元素。当active变量的值不等于0时，这个<div>元素及其内容将不会被渲染到页面上，相当于被隐藏了</p>
+<pre><code>            // 开始或重置表单验证和提交过程的函数
+const startreset = () =&gt; &#123;
+            // 验证表单字段
+formRef.value.validate((isValid) =&gt; &#123;
+            // 如果表单有效
+if (isValid) &#123;
+           // 发送POST请求到指定的API端点，附带表单数据
+post(&quot;api/auth/start-refister&quot;, &#123;
+email: form.email, // 用户的邮箱
+code: form.code   // 验证码
+&#125;, () =&gt; &#123;
+          // 请求成功后增加active值
+active.value++;
+
+&#125;);
+&#125; else &#123;
+          // 如果表单无效，显示警告信息
+ElMessage.warning(&quot;请填写邮箱和表单&quot;);
+&#125;
+&#125;);
+&#125;
+</code></pre>
+<p>注意validate是ELement提供的回调函数，isvailid是他提供的他只真或者假的，在这里注意看它的  active.value++;</p>
+<h2 id="封装工具类"><a href="#封装工具类" class="headerlink" title="封装工具类"></a>封装工具类</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">import &#123;ElMessage&#125; from &quot;element-plus&quot;;</span><br><span class="line"></span><br><span class="line">const defaultError=()=&gt;ElMessage.error(&quot;发生了一些错误，请联系管理员&quot;)</span><br><span class="line"></span><br><span class="line">const defaultFailure=(message)=&gt;ElMessage.warning(message)</span><br><span class="line"></span><br><span class="line">function post(url,data,success,failure=defaultFailure,error=defaultError)&#123;</span><br><span class="line">        axios.post(url,data,&#123;</span><br><span class="line">            headers:&#123;</span><br><span class="line">                &#x27;Content-Type&#x27;:&#x27;application/x-www-form-urlencoded&#x27;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            withCredentials:true</span><br><span class="line">        &#125;).then((&#123;data&#125;)=&gt;&#123;</span><br><span class="line">            if(data.success)</span><br><span class="line">                success(data.message,data.status)</span><br><span class="line">            else</span><br><span class="line">                failure(data.message,data.status)</span><br><span class="line"></span><br><span class="line">        &#125;).catch(error)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面我来讲一讲</p>
+<p>headers: { ‘Content-Type’: ‘application&#x2F;x-www-form-urlencoded’ }</p>
+<p>这行代码设置了 HTTP 请求的头部信息，具体来说是 Content-Type 头部。</p>
+<p>Content-Type: 这个头部告诉服务器请求中的数据是什么类型。在这里，application&#x2F;x-www-form-urlencoded 表示数据将以键值对的形式编码，类似于 URL 参数。这种编码方式常用于表单提交。<br>作用: 服务器根据 Content-Type 头部来解析请求体中的数据。如果不设置这个头部，服务器可能无法正确解析数据，导致请求失败。</p>
+<p><strong>当我们使用键值对向后端发数据的时候</strong></p>
+<pre><code>假设你有以下数据需要发送：
+
+JSON
+
+&#123;
+&quot;name&quot;: &quot;John Doe&quot;,
+&quot;age&quot;: 30,
+&quot;city&quot;: &quot;New York&quot;
+&#125;
+AI 生成的代码。仔细查看和使用。 有关常见问题解答的详细信息.
+使用 application/x-www-form-urlencoded 编码后，这些数据会变成：
+
+name=John+Doe&amp;age=30&amp;city=New+York
+</code></pre>
+<p><strong>如果想向后端发送json数据</strong></p>
+<figure class="highlight plaintext"><figcaption><span>&#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x27;Content-Type&#x27;: &#x27;application/json&#x27; // 设置请求头，指定内容类型为 application/json</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是模仿数据发送的格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const userData = &#123;</span><br><span class="line">    username: &quot;john_doe&quot;,</span><br><span class="line">    password: &quot;securepassword&quot;,</span><br><span class="line">    email: &quot;john@example.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>服务器接受</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/api&quot;)</span><br><span class="line">public class UserController &#123;</span><br><span class="line"></span><br><span class="line">    @PostMapping(&quot;/register&quot;)</span><br><span class="line">    public ResponseEntity&lt;String&gt; registerUser(@RequestBody User user) &#123;</span><br><span class="line">        // 处理注册逻辑</span><br><span class="line">        return ResponseEntity.ok(&quot;User registered successfully&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面的作用<br><code>@RequestBody 注解用于将请求体中的 JSON 数据映射到 User 对象。</code></p>
+<p>看到这个地方心里就啥就明白了吧！</p>
+<p><strong>withCredentials: true</strong></p>
+<p>   这行代码设置了跨域请求时是否携带凭证（如 cookies、HTTP 认证信息等）。</p>
+<p>withCredentials: 这是一个布尔值选项，表示是否允许跨域请求携带凭证</p>
+<p><strong>在继续看then</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.then((&#123;data&#125;)=&gt;&#123;</span><br><span class="line">            if(data.success)</span><br><span class="line">                success(data.message,data.status)</span><br><span class="line">            else</span><br><span class="line">                failure(data.message,data.status)</span><br><span class="line"></span><br><span class="line">        &#125;).catch(error)</span><br></pre></td></tr></table></figure>
+<p>then,代表，请求成功之后的调用段代码 then(({ data }) &#x3D;&gt; { … }) 部分使用了解构赋值，将响应对象中的 data 属性提取出来，直接使用 data 变量，而不需要写成 response.data</p>
+<p>双括号是then也需要个回调函数作为参数，而这个回调函数本身也需要调用。第一个括号是调用 then 方法，第二个括号是定义并调用回调函数</p>
+<p><strong>catch</strong><br>catch 方法接收一个回调函数，该函数会在请求失败时执行。<br>回调函数的参数是错误对象 error。<br>在这里，catch 方法调用了 error 函数（即 defaultError），显示错误消息</p>
+<h2 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h2><p>如同上一小节，这节将讲一讲跨域请求与<br><strong>withCredentials: true</strong></p>
+<p>这行代码设置了跨域请求时是否携带凭证（如 cookies、HTTP 认证信息等）。</p>
+<p>withCredentials: 这是一个布尔值选项，表示是否允许跨域请求携带凭证</p>
+<p><code>withCredentials: true 和 corsConfiguration.setAllowCredentials(true)</code></p>
+<p>前端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">前端</span><br><span class="line">withCredentials: true: 这是在前端配置中使用的，告诉浏览器在跨域请求时携带凭证（如 cookies）。</span><br><span class="line">JavaScript</span><br><span class="line"></span><br><span class="line">axios.post(url, data, &#123;</span><br><span class="line">withCredentials: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>后端:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">corsConfiguration.setAllowCredentials(true): 这是在后端配置中使用的，告诉服务器允许跨域请求携带凭证。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>这两者结合使用时，前端会发送凭证，后端会接受这些凭证，从而实现跨域请求时的身份验证。</strong></p>
+<p> @CrossOrigin</p>
+<p>@CrossOrigin: 这是一个注解，用于配置允许哪些域可以进行跨域请求。可以应用于控制器类或方法上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@CrossOrigin(origins = &quot;http://example.com&quot;)</span><br><span class="line">@GetMapping(&quot;/data&quot;)</span><br><span class="line">public ResponseEntity&lt;String&gt; getData() &#123;</span><br><span class="line">return ResponseEntity.ok(&quot;Some data&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>作用:</p>
+<p>这个注解主要用于指定允许的跨域请求来源、方法等。它可以细粒度地控制哪些请求被允许跨域访问。</p>
+<p>区别总结<br>配置范围:</p>
+<figure class="highlight plaintext"><figcaption><span>和 setAllowCredentials 主要用于处理跨域请求时的凭证携带问题。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@CrossOrigin 用于配置允许的跨域请求来源、方法等，提供更全面的跨域控制。</span><br></pre></td></tr></table></figure>
+<p>使用场景:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果你需要处理跨域请求时的身份验证问题，使用 withCredentials 和 setAllowCredentials。</span><br><span class="line">如果你需要配置哪些域可以进行跨域请求，使用 @CrossOrigin。</span><br></pre></td></tr></table></figure>
+<p>灵活性:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@CrossOrigin 可以在控制器或方法级别进行配置，灵活性更高。</span><br><span class="line">withCredentials 和 setAllowCredentials 主要用于全局配置跨域请求的凭证携带。</span><br></pre></td></tr></table></figure>
+<h2 id="路由管理和全局守卫"><a href="#路由管理和全局守卫" class="headerlink" title="路由管理和全局守卫"></a>路由管理和全局守卫</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">// 导入 Vue Router 所需的模块</span><br><span class="line">import &#123; createRouter, createWebHistory &#125; from &#x27;vue-router&#x27;</span><br><span class="line">// 从指定路径导入 store</span><br><span class="line">import &#123; useStore &#125; from &quot;@/stores/counter.js&quot;;</span><br><span class="line"></span><br><span class="line">// 创建一个新的路由实例</span><br><span class="line">const router = createRouter(&#123;</span><br><span class="line">  // 使用 HTML5 历史模式进行导航</span><br><span class="line">  history: createWebHistory(import.meta.env.BASE_URL),</span><br><span class="line">  // 定义应用的路由</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      // 欢迎视图的根路径</span><br><span class="line">      path: &#x27;/&#x27;,</span><br><span class="line">      name: &#x27;welcome&#x27;,</span><br><span class="line">      // 懒加载欢迎视图组件</span><br><span class="line">      component: () =&gt; import(&#x27;@/views/weclcome.vue&#x27;),</span><br><span class="line">      // 定义欢迎视图的子路由</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          // 登录页面的默认子路由</span><br><span class="line">          path: &#x27;&#x27;,</span><br><span class="line">          name: &#x27;welcome-login&#x27;,</span><br><span class="line">          // 懒加载登录页面组件</span><br><span class="line">          component: () =&gt; import(&#x27;@/c*************.vue&#x27;)</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          // 注册页面的路由</span><br><span class="line">          path: &#x27;/re*****r&#x27;,</span><br><span class="line">          name: &#x27;welcome-RegisterPage&#x27;,</span><br><span class="line">          // 懒加载注册页面组件</span><br><span class="line">          component: () =&gt; import(&#x27;@/c***************e.vue&#x27;)</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          // 忘记密码页面的路由</span><br><span class="line">          path: &#x27;/fo***t&#x27;,</span><br><span class="line">          name: &#x27;welcome-forget&#x27;,</span><br><span class="line">          // 懒加载忘记密码页面组件</span><br><span class="line">          component: () =&gt; import(&#x27;@/*****************e.vue&#x27;)</span><br><span class="line">        &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      // 主索引视图的路由</span><br><span class="line">      path: &#x27;/i***x&#x27;,</span><br><span class="line">      name: &#x27;index&#x27;,</span><br><span class="line">      // 懒加载索引视图组件</span><br><span class="line">      component: () =&gt; import(&#x27;@/v*************vue&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 定义全局导航守卫</span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  // 获取 store 实例</span><br><span class="line">  const store = useStore()</span><br><span class="line">  // 如果用户已认证且尝试访问欢迎路由，则重定向到索引页面</span><br><span class="line">  if (store.auth.user != null &amp;&amp; to.name.startsWith(&#x27;welcome&#x27;)) &#123;</span><br><span class="line">    next(&#x27;/index&#x27;)</span><br><span class="line">  // 如果用户未认证且尝试访问索引路由，则重定向到欢迎页面</span><br><span class="line">  &#125; else if (store.auth.user == null &amp;&amp; to.fullPath.startsWith(&#x27;/index&#x27;)) &#123;</span><br><span class="line">    next(&#x27;/&#x27;)</span><br><span class="line">  // 如果路由不匹配任何定义的路由，则重定向到欢迎页面</span><br><span class="line">  &#125; else if (to.matched.length === 0) &#123;</span><br><span class="line">    next(&#x27;/&#x27;)</span><br><span class="line">  // 否则，继续导航到下一个路由</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 导出路由实例以供应用使用</span><br><span class="line">export default router</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>导入：导入 vue-router 中的必要模块和 @&#x2F;stores&#x2F;counter.js 中的 store。</p>
+<p>创建路由：使用 createRouter 创建一个新的路由实例，使用 HTML5 历史模式和定义的路由。</p>
+<p>定义路由：</p>
+<p>根路径 (&#x2F;) 关联到 welcome 视图，该视图有子路由用于登录、注册和忘记密码页面。</p>
+<p>&#x2F;index 路径关联到主 index 视图。</p>
+<p>导航守卫：</p>
+<p>在每次路由变化之前，beforeEach 守卫会检查用户的认证状态。</p>
+<p>如果用户已认证且尝试访问欢迎路由，则重定向到索引页面。</p>
+<p>如果用户未认证且尝试访问索引页面，则重定向到欢迎页面。</p>
+<p>如果路由不匹配任何定义的路由，则重定向到欢迎页面。</p>
+<p>否则，继续导航到下一个路由。</p>
+<p>导出：导出路由实例以供应用使用。</p>
+<h3 id="路由管理"><a href="#路由管理" class="headerlink" title="路由管理"></a>路由管理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">路由管理</span><br><span class="line">路由管理是指在单页应用（SPA）中，通过定义不同的路由来管理页面的导航。Vue Router 是 Vue.js 官方的路由管理器，它允许我们在 Vue 应用中轻松地定义和管理路由。</span><br><span class="line"></span><br><span class="line">基本概念</span><br><span class="line">路由：路由是 URL 与组件之间的映射关系。每个路由都包含一个路径和一个组件，当用户访问该路径时，Vue Router 会渲染对应的组件。</span><br><span class="line">路由表：路由表是一个数组，包含所有路由的定义。每个路由对象通常包含 path 和 component 属性。</span><br><span class="line">嵌套路由：嵌套路由允许我们在一个路由中定义子路由，从而实现多级导航结构。</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">全局守卫</span><br><span class="line">全局守卫是指在路由变化时执行的钩子函数。Vue Router 提供了三种全局守卫：</span><br><span class="line"></span><br><span class="line">beforeEach：在每次路由变化前执行。</span><br><span class="line">beforeResolve：在组件内守卫和异步路由组件被解析之后执行。</span><br><span class="line">afterEach：在每次路由变化后执行。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">beforeEach：</span><br><span class="line">    to：即将进入的路由对象。</span><br><span class="line">    from：当前导航正要离开的路由对象。</span><br><span class="line">    next：必须调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。</span><br><span class="line">    在 beforeEach 守卫中，我们可以添加逻辑来检查用户的权限或状态。例如，检查用户是否已登录，如果未登录则重定向到登录页面。</span><br><span class="line">afterEach：</span><br><span class="line">    to：即将进入的路由对象。</span><br><span class="line">    from：当前导航正要离开的路由对象。</span><br><span class="line">    在 afterEach 守卫中，我们可以添加逻辑来执行一些操作，例如记录页面访问日志或更新页面标题。</span><br></pre></td></tr></table></figure>
+<h3 id="stores"><a href="#stores" class="headerlink" title="stores"></a>stores</h3><p>是用于管理应用状态的地方。它们提供了一种集中管理和共享状态的方式，使得不同组件之间可以方便地访问和修改状态。Pinia 是 Vue 的状态管理库之一，它提供了简单且强大的 API 来定义和使用 stores。<br>如上一个所示，userstore的创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123; defineStore &#125; from &#x27;pinia&#x27;</span><br><span class="line">import &#123; reactive &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export const useStore = defineStore(&#x27;store&#x27;, () =&gt; &#123;</span><br><span class="line">const auth = reactive(&#123;</span><br><span class="line">  user:null</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">  return &#123; auth&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">主要功能</span><br><span class="line">集中管理状态：</span><br><span class="line">stores 将应用的状态集中在一个地方，方便管理和维护。</span><br><span class="line">例如，用户的认证状态、应用的设置、购物车的内容等都可以存储在 stores 中。</span><br><span class="line">共享状态：</span><br><span class="line">通过 stores，不同的组件可以共享同一个状态。</span><br><span class="line">例如，用户登录后，多个组件都需要知道用户的登录状态，这时可以通过 stores 来实现状态共享。</span><br><span class="line">响应式状态：</span><br><span class="line">stores 中的状态是响应式的，当状态发生变化时，依赖该状态的组件会自动更新。</span><br><span class="line">例如，当购物车中的商品数量发生变化时，显示购物车内容的组件会自动更新。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h2><p>在使用main.js里面的作用</p>
+<p>整体作用是创建并配置一个 Vue 应用，使用 Pinia 进行状态管理，使用 Vue Router 进行导航，并通过 axios 进行 HTTP 请求。最后，将应用挂载到指定的 DOM 元素上进行渲染</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">                            // 从 Vue 导入 createApp 函数</span><br><span class="line">import &#123; createApp &#125; from &#x27;vue&#x27;</span><br><span class="line">                             // 从 Pinia 导入 createPinia 函数</span><br><span class="line">import &#123; createPinia &#125; from &#x27;pinia&#x27;</span><br><span class="line"></span><br><span class="line">                              // 导入主应用组件</span><br><span class="line">import App from &#x27;./App.vue&#x27;</span><br><span class="line">                            // 导入路由配置</span><br><span class="line">import router from &#x27;./router&#x27;</span><br><span class="line">                                // 导入 Element Plus 的样式文件</span><br><span class="line">import &#x27;element-plus/dist/index.css&#x27;</span><br><span class="line">                                // 导入 axios 库</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line"></span><br><span class="line">                             // 创建一个 Vue 应用实例</span><br><span class="line">const app = createApp(App)</span><br><span class="line">                                 // 设置 axios 的默认基础 URL</span><br><span class="line">axios.defaults.baseURL = &#x27;http://localhost:8091&#x27;</span><br><span class="line"></span><br><span class="line">                                    // 使用 Pinia 作为状态管理库</span><br><span class="line">app.use(createPinia())</span><br><span class="line">                            // 使用路由配置</span><br><span class="line">app.use(router)</span><br><span class="line"></span><br><span class="line">                            // 挂载应用到指定的 DOM 元素上</span><br><span class="line">app.mount(&#x27;#app&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>总的来说，上面挂载默认界面是App.Vue</p>
+<p>拿着本实战来说APP.vue为根目录<br>他里面就存放一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;router-view&gt; </code>是一个占位符，表示路由匹配的组件将会在这里渲染。这样，当你导航到不同的路由时，<br>匹配的组件会在 App.vue 中的 <code>&lt;router-view&gt;</code>里面</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>components 目录通常包含应用中可复用的、独立的 UI 组件。这些组件可以在多个地方使用，并且通常是较小的、功能单一的组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可复用性：这些组件可以在多个视图或其他组件中使用。</span><br><span class="line">独立性：每个组件通常只负责一个特定的功能或 UI 部分。</span><br><span class="line">粒度较小：组件通常是较小的 UI 单元，例如按钮、输入框、卡片等。</span><br></pre></td></tr></table></figure>
+<p>这个很好理解，就是 子路由</p>
+<h2 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h2><p>目录通常包含应用中的页面级组件。这些组件通常对应于路由，并且是较大的、包含多个子组件的组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">页面级别：这些组件通常对应于应用中的一个完整页面。</span><br><span class="line">包含子组件：视图组件通常包含多个子组件，组合成一个完整的页面。</span><br><span class="line">与路由关联：每个视图组件通常对应一个路由路径</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">langye123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/07/04/%E7%94%A8idea%E5%86%99%E5%89%8D%E7%AB%AFvue/">http://example.com/2024/07/04/用idea写前端vue/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">langye123的小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring6/">Spring6</a><a class="post-meta__tags" href="/tags/vue/">vue</a><a class="post-meta__tags" href="/tags/%E5%AE%9E%E6%88%98/">实战</a></div><div class="post_share"><div class="social-share" data-image="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/image/zhifubao.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/weixin.jpg" target="_blank"><img class="post-qr-code-img" src="/image/weixin.jpg" alt="支付"/></a><div class="post-qr-code-desc">支付</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/27/%E6%8A%BD%E8%B1%A1%E7%B1%BB%EF%BC%8C%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="抽象类，接口，构造方法详解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">抽象类，接口，构造方法详解</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/04/SpringBoot3+ssm+spring6/" title="学习SpringBoot3+ssm+spring6三月后疑难点总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习SpringBoot3+ssm+spring6三月后疑难点总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/07/04/SpringBoot3+ssm+spring6/" title="学习SpringBoot3+ssm+spring6三月后疑难点总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-04</div><div class="title">学习SpringBoot3+ssm+spring6三月后疑难点总结</div></div></a></div><div><a href="/2024/07/05/SpringBoot%E5%AE%9E%E6%88%98/" title="SpringBoot实战 number2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-05</div><div class="title">SpringBoot实战 number2</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">langye123</div><div class="author-info__description">不喜欢，不值得</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/langye123"><i class="fab fa-github"></i><span>call me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/langye123" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:langye666@139.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">深窥自己的心，而后发觉一切的奇迹在你自己</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="toc-number">1.1.</span> <span class="toc-text">两个构建方式有什么不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFvite"><span class="toc-number">1.2.</span> <span class="toc-text">什么是vite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue3%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">vue3前置工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ElementPlusResolver%E6%8C%89%E9%9C%80%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">ElementPlusResolver按需自动导入配置插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp%E4%B8%8Evue3%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">jsp与vue3的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%B8%8A%E6%96%87%E6%89%80%E8%AF%B4%E6%88%91%E5%8F%88%E5%AE%89%E8%A3%85-axios"><span class="toc-number">4.</span> <span class="toc-text">如上文所说我又安装 axios</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Element-Plus%E6%A1%86%E6%9E%B6%E8%87%AA%E5%B8%A6%E8%A1%A8%E5%8D%95%E6%A3%80%E9%AA%8C%E5%8A%9F%E8%83%BD"><span class="toc-number">5.</span> <span class="toc-text">Element Plus框架自带表单检验功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E9%82%AE%E7%AE%B1%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95-%E6%98%AF%E5%90%A6%E5%B1%95%E7%A4%BA%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0"><span class="toc-number">6.</span> <span class="toc-text">验证邮箱是否合法-是否展示获取验证码按钮出现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E8%A1%A8%E5%8D%95%E6%89%80%E6%9C%89%E6%A1%86%E5%85%A8%E9%83%A8%E6%AD%A3%E7%A1%AE%EF%BC%8CElement-Plus%EF%BC%8C%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E4%B8%AAvalidate"><span class="toc-number">6.1.</span> <span class="toc-text">验证表单所有框全部正确，Element Plus，表单提供了一个validate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99"><span class="toc-number">6.2.</span> <span class="toc-text">自定义校验规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Element-UI-%E7%BB%84%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">Element UI 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E6%9D%A1"><span class="toc-number">7.1.</span> <span class="toc-text">步骤条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">8.</span> <span class="toc-text">封装工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="toc-number">9.</span> <span class="toc-text">跨域请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86%E5%92%8C%E5%85%A8%E5%B1%80%E5%AE%88%E5%8D%AB"><span class="toc-number">10.</span> <span class="toc-text">路由管理和全局守卫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86"><span class="toc-number">10.1.</span> <span class="toc-text">路由管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%AE%88%E5%8D%AB"><span class="toc-number">10.2.</span> <span class="toc-text">全局守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stores"><span class="toc-number">10.3.</span> <span class="toc-text">stores</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main-js"><span class="toc-number">11.</span> <span class="toc-text">main.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Components"><span class="toc-number">12.</span> <span class="toc-text">Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Views"><span class="toc-number">13.</span> <span class="toc-text">Views</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/14/ssh%E5%85%AC%E9%92%A5%E6%9B%B4%E6%94%B9%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E6%B7%BB%E5%8A%A0/" title="ssh公钥更改，删除，添加">ssh公钥更改，删除，添加</a><time datetime="2024-07-13T16:00:00.000Z" title="发表于 2024-07-14 00:00:00">2024-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/14/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="博客问题汇总">博客问题汇总</a><time datetime="2024-07-13T16:00:00.000Z" title="发表于 2024-07-14 00:00:00">2024-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/13/%E4%B8%AA%E4%BA%BA%E6%A2%AF%E5%AD%90%E6%90%AD%E5%BB%BA/" title="个人梯子搭建指南">个人梯子搭建指南</a><time datetime="2024-07-12T16:00:00.000Z" title="发表于 2024-07-13 00:00:00">2024-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/13/%E8%BF%81%E7%A7%BBgithup%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="迁移自己博客，从github到自己的服务器">迁移自己博客，从github到自己的服务器</a><time datetime="2024-07-12T16:00:00.000Z" title="发表于 2024-07-13 00:00:00">2024-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/05/SpringBoot%E5%AE%9E%E6%88%98/" title="SpringBoot实战 number2">SpringBoot实战 number2</a><time datetime="2024-07-04T16:00:00.000Z" title="发表于 2024-07-05 00:00:00">2024-07-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/04/SpringBoot3+ssm+spring6/" title="学习SpringBoot3+ssm+spring6三月后疑难点总结">学习SpringBoot3+ssm+spring6三月后疑难点总结</a><time datetime="2024-07-04T08:04:28.000Z" title="发表于 2024-07-04 16:04:28">2024-07-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(91,126,168)"><div id="footer-wrap"><div class="copyright">&copy;2024 By langye123</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://langye123.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'AGI3dysGvfIYIzn7hYDN0x7u-gzGzoHsz',
+      appKey: 'hNVVCVbUPKe5bnZljCguDEeZ',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2024/07/04/%E7%94%A8idea%E5%86%99%E5%89%8D%E7%AB%AFvue/'
+    this.page.identifier = '/2024/07/04/%E7%94%A8idea%E5%86%99%E5%89%8D%E7%AB%AFvue/'
+    this.page.title = '用idea写前端vue spring实战2'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://langye123.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=langye123&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script src="/script/fish.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.8" zIndex="-1" count="200" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
