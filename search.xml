@@ -87,7 +87,7 @@
       <link href="/2024/07/14/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
       <url>/2024/07/14/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
       
-        <content type="html"><![CDATA[<p>1.标签问题，感觉标签或者分类不是特别合适，换一下，导致部署出来旧的分类或者标签还在</p><p>解决： 去public，文件夹下把对应的旧的文件夹删掉。记住用 hexo clean 多试几遍</p>]]></content>
+        <content type="html"><![CDATA[<ol><li>标签问题，感觉标签或者分类不是特别合适，换一下，导致部署出来旧的分类或者标签还在</li></ol><p>解决： 去public，文件夹下把对应的旧的文件夹删掉。记住用 hexo clean 多试几遍<br>2. 公钥问题登不上去，github，把博客迁移到自己的服务器上，想着githun上面也不能荒废，想着往上面再传一下，发现传不上去</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub                    查看自己的公钥看看是不是变了，结果没有变</span><br><span class="line">ssh -T -ai ~/.ssh/id_rsa git@github.com  查看公钥被github上面哪一个用户或者仓库使用</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
