@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>nmap常用的指令 | langye123的小屋</title><meta name="author" content="langye123"><meta name="copyright" content="langye123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nmap 常用指令与技巧详解（精编实战指南）目录 基础扫描指令 端口扫描选项 服务与版本探测 操作系统探测 NSE脚本引擎 性能与时序优化 输出与日志管理 防火墙&#x2F;IDS绕过技巧 实战组合命令 安全与合规建议   基础扫描指令主机发现（Ping 扫描）12nmap -sn 192.168.1.0&#x2F;24        # 仅探测存活主机（不扫端口）nmap -sn --reason tar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nmap常用的指令">
+<meta property="og:url" content="https://langye.xyz/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:site_name" content="langye123的小屋">
+<meta property="og:description" content="Nmap 常用指令与技巧详解（精编实战指南）目录 基础扫描指令 端口扫描选项 服务与版本探测 操作系统探测 NSE脚本引擎 性能与时序优化 输出与日志管理 防火墙&#x2F;IDS绕过技巧 实战组合命令 安全与合规建议   基础扫描指令主机发现（Ping 扫描）12nmap -sn 192.168.1.0&#x2F;24        # 仅探测存活主机（不扫端口）nmap -sn --reason tar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://langye.xyz/image/36f1c8882fad4d25ba54dbacb2d00bf3.png">
+<meta property="article:published_time" content="2025-12-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-14T08:26:01.255Z">
+<meta property="article:author" content="langye123">
+<meta property="article:tag" content="经验">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://langye.xyz/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"><link rel="shortcut icon" href="/image/xuanzhuandeshuilangbeijinghua4041924.jpg"><link rel="canonical" href="https://langye.xyz/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'nmap常用的指令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-14 16:26:01'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/77777777.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="langye123的小屋"><img class="site-icon" src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"/><span class="site-name">langye123的小屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">nmap常用的指令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-13T16:00:00.000Z" title="发表于 2025-12-14 00:00:00">2025-12-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-14T08:26:01.255Z" title="更新于 2025-12-14 16:26:01">2025-12-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="nmap常用的指令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Nmap-常用指令与技巧详解（精编实战指南）"><a href="#Nmap-常用指令与技巧详解（精编实战指南）" class="headerlink" title="Nmap 常用指令与技巧详解（精编实战指南）"></a>Nmap 常用指令与技巧详解（精编实战指南）</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E5%9F%BA%E7%A1%80%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4">基础扫描指令</a></li>
+<li><a href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E9%80%89%E9%A1%B9">端口扫描选项</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E4%B8%8E%E7%89%88%E6%9C%AC%E6%8E%A2%E6%B5%8B">服务与版本探测</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A2%E6%B5%8B">操作系统探测</a></li>
+<li><a href="#nse%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E">NSE脚本引擎</a></li>
+<li><a href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E6%97%B6%E5%BA%8F%E4%BC%98%E5%8C%96">性能与时序优化</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E4%B8%8E%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86">输出与日志管理</a></li>
+<li><a href="#%E9%98%B2%E7%81%AB%E5%A2%99ids%E7%BB%95%E8%BF%87%E6%8A%80%E5%B7%A7">防火墙&#x2F;IDS绕过技巧</a></li>
+<li><a href="#%E5%AE%9E%E6%88%98%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4">实战组合命令</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E4%B8%8E%E5%90%88%E8%A7%84%E5%BB%BA%E8%AE%AE">安全与合规建议</a></li>
+</ol>
+<hr>
+<h2 id="基础扫描指令"><a href="#基础扫描指令" class="headerlink" title="基础扫描指令"></a>基础扫描指令</h2><h3 id="主机发现（Ping-扫描）"><a href="#主机发现（Ping-扫描）" class="headerlink" title="主机发现（Ping 扫描）"></a>主机发现（Ping 扫描）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 192.168.1.0/24        <span class="comment"># 仅探测存活主机（不扫端口）</span></span><br><span class="line">nmap -sn --reason target.com   <span class="comment"># 显示响应原因（如 ICMP echo reply）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-sn</code> 替代旧版 <code>-sP</code>，适用于网络资产盘点。</p>
+</blockquote>
+<h3 id="基础端口扫描类型"><a href="#基础端口扫描类型" class="headerlink" title="基础端口扫描类型"></a>基础端口扫描类型</h3><table>
+<thead>
+<tr>
+<th>扫描类型</th>
+<th>命令</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SYN 扫描（默认）</td>
+<td><code>nmap -sS 192.168.1.1</code></td>
+<td>快速、隐蔽，需 root 权限</td>
+</tr>
+<tr>
+<td>TCP 连接扫描</td>
+<td><code>nmap -sT 192.168.1.1</code></td>
+<td>无需 root，但易被日志记录</td>
+</tr>
+<tr>
+<td>UDP 扫描</td>
+<td><code>nmap -sU 192.168.1.1</code></td>
+<td>慢且不可靠，但可发现 DNS&#x2F;SNMP 等服务</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="端口扫描选项"><a href="#端口扫描选项" class="headerlink" title="端口扫描选项"></a>端口扫描选项</h2><h3 id="端口指定方式"><a href="#端口指定方式" class="headerlink" title="端口指定方式"></a>端口指定方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 22,80,443 192.168.1.1     <span class="comment"># 指定端口</span></span><br><span class="line">nmap -p 1-1000 192.168.1.1        <span class="comment"># 端口范围</span></span><br><span class="line">nmap -p- 192.168.1.1              <span class="comment"># 全端口扫描（0–65535）</span></span><br><span class="line">nmap --top-ports 100 192.168.1.1  <span class="comment"># 扫描最常用100个端口</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="高级扫描类型（用于绕过简单防火墙）"><a href="#高级扫描类型（用于绕过简单防火墙）" class="headerlink" title="高级扫描类型（用于绕过简单防火墙）"></a>高级扫描类型（用于绕过简单防火墙）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -sF 192.168.1.1   <span class="comment"># FIN 扫描</span></span><br><span class="line">nmap -sN 192.168.1.1   <span class="comment"># NULL 扫描（无标志位）</span></span><br><span class="line">nmap -sX 192.168.1.1   <span class="comment"># Xmas 扫描（FIN+URG+PUSH）</span></span><br><span class="line">nmap -sA 192.168.1.1   <span class="comment"># ACK 扫描（判断是否被过滤）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这些扫描对 Windows 无效（RFC 不兼容），主要用于 Linux&#x2F;Unix 系统探测。</p>
+</blockquote>
+<hr>
+<h2 id="服务与版本探测"><a href="#服务与版本探测" class="headerlink" title="服务与版本探测"></a>服务与版本探测</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV 192.168.1.1                    <span class="comment"># 基础服务版本识别</span></span><br><span class="line">nmap -sV --version-intensity 9 192.168.1.1  <span class="comment"># 最高强度探测（慢但准）</span></span><br><span class="line">nmap -A 192.168.1.1                     <span class="comment"># 全功能：-sV + -O + -sC + --traceroute</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>-sV</code> 会主动连接开放端口并发送探针，可能触发 IDS 告警，请谨慎使用。</p>
+</blockquote>
+<hr>
+<h2 id="操作系统探测"><a href="#操作系统探测" class="headerlink" title="操作系统探测"></a>操作系统探测</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -O 192.168.1.1                     <span class="comment"># 启用 OS 探测</span></span><br><span class="line">nmap -O --osscan-guess 192.168.1.1      <span class="comment"># 启用猜测模式（匹配相似指纹）</span></span><br><span class="line">nmap -v -O 192.168.1.1                  <span class="comment"># 显示详细匹配过程</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>成功率依赖于目标响应包的 TTL、窗口大小、TCP 选项等特征。</p>
+</blockquote>
+<hr>
+<h2 id="NSE脚本引擎"><a href="#NSE脚本引擎" class="headerlink" title="NSE脚本引擎"></a>NSE脚本引擎</h2><h3 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -sC 192.168.1.1                    <span class="comment"># 使用默认脚本（safe 类别）</span></span><br><span class="line">nmap --script vuln 192.168.1.1          <span class="comment"># 执行漏洞检测脚本</span></span><br><span class="line">nmap --script http-title,ssl-heartbleed 192.168.1.1  <span class="comment"># 多脚本</span></span><br><span class="line">nmap --script <span class="string">&quot;not intrusive&quot;</span> 192.168.1.1            <span class="comment"># 排除侵入性脚本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="常用脚本类别"><a href="#常用脚本类别" class="headerlink" title="常用脚本类别"></a>常用脚本类别</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>vuln</code></td>
+<td>CVE 漏洞检测（如 Heartbleed、MS17-010）</td>
+</tr>
+<tr>
+<td><code>safe</code></td>
+<td>安全、非破坏性脚本（默认）</td>
+</tr>
+<tr>
+<td><code>brute</code></td>
+<td>密码爆破（慎用！）</td>
+</tr>
+<tr>
+<td><code>discovery</code></td>
+<td>服务发现（如 SMB 共享、DNS 记录）</td>
+</tr>
+<tr>
+<td><code>exploit</code></td>
+<td>利用脚本（高风险）</td>
+</tr>
+</tbody></table>
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap --script-updatedb                  <span class="comment"># 更新脚本数据库</span></span><br><span class="line">nmap --script-help http-*               <span class="comment"># 查看某类脚本说明</span></span><br><span class="line">nmap --script-trace 192.168.1.1         <span class="comment"># 跟踪脚本执行过程</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="性能与时序优化"><a href="#性能与时序优化" class="headerlink" title="性能与时序优化"></a>性能与时序优化</h2><h3 id="时序模板（-T0-到-T5）"><a href="#时序模板（-T0-到-T5）" class="headerlink" title="时序模板（-T0 到 -T5）"></a>时序模板（<code>-T0</code> 到 <code>-T5</code>）</h3><table>
+<thead>
+<tr>
+<th>级别</th>
+<th>名称</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T0</td>
+<td>Paranoid</td>
+<td>极慢，躲避 IDS</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Polite</td>
+<td>礼貌模式，避免影响生产</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Aggressive</td>
+<td>快速扫描（推荐）</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Insane</td>
+<td>极快，可能漏报</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -T4 -p- 192.168.1.1    <span class="comment"># 快速全端口扫描</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义性能参数"><a href="#自定义性能参数" class="headerlink" title="自定义性能参数"></a>自定义性能参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--max-rate 100          <span class="comment"># 限制每秒最多100个包</span></span><br><span class="line">--min-hostgroup 64      <span class="comment"># 并行扫描至少64台主机</span></span><br><span class="line">--max-rtt-timeout 500ms <span class="comment"># 缩短超时，提升速度</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="输出与日志管理"><a href="#输出与日志管理" class="headerlink" title="输出与日志管理"></a>输出与日志管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -oN normal.txt 192.168.1.1   <span class="comment"># 正常文本</span></span><br><span class="line">nmap -oX xml.xml 192.168.1.1      <span class="comment"># XML（便于程序解析）</span></span><br><span class="line">nmap -oG greppable.txt 192.168.1.1 <span class="comment"># Grep 友好格式</span></span><br><span class="line">nmap -oA all_scan 192.168.1.1     <span class="comment"># 同时输出三种格式（all_scan.nmap/.xml/.gnmap）</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议始终保存扫描结果，便于审计与复现。</p>
+</blockquote>
+<hr>
+<h2 id="防火墙-IDS绕过技巧"><a href="#防火墙-IDS绕过技巧" class="headerlink" title="防火墙&#x2F;IDS绕过技巧"></a>防火墙&#x2F;IDS绕过技巧</h2><blockquote>
+<p>⚠️ 仅限授权渗透测试使用！</p>
+</blockquote>
+<h3 id="分片与混淆"><a href="#分片与混淆" class="headerlink" title="分片与混淆"></a>分片与混淆</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -f 192.168.1.1                 <span class="comment"># IP 分片（绕过简单包过滤）</span></span><br><span class="line">nmap --mtu 24 192.168.1.1           <span class="comment"># 自定义 MTU（必须为8的倍数）</span></span><br><span class="line">nmap --data-length 100 192.168.1.1  <span class="comment"># 添加随机填充数据</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="诱饵与欺骗"><a href="#诱饵与欺骗" class="headerlink" title="诱饵与欺骗"></a>诱饵与欺骗</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -D RND:10 192.168.1.1          <span class="comment"># 随机生成10个诱饵IP</span></span><br><span class="line">nmap -D 192.168.1.50,192.168.1.51,ME 192.168.1.100  <span class="comment"># 指定诱饵（ME=真实IP）</span></span><br><span class="line">nmap --spoof-mac 00:11:22:33:44:55 192.168.1.1       <span class="comment"># 伪造MAC地址</span></span><br><span class="line">nmap --source-port 53 192.168.1.1   <span class="comment"># 伪装源端口为DNS（53），绕过ACL</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap --randomize-hosts 192.168.1.0/24  <span class="comment"># 随机扫描顺序</span></span><br><span class="line">nmap --ttl 255 192.168.1.1             <span class="comment"># 自定义 TTL（模拟不同OS）</span></span><br><span class="line">nmap --badsum 192.168.1.1              <span class="comment"># 发送错误校验和（测试IDS）</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="实战组合命令"><a href="#实战组合命令" class="headerlink" title="实战组合命令"></a>实战组合命令</h2><p>当然可以！以下是更新后的表格，新增一列 <strong>“参数详解”</strong>，对每条命令中的关键参数进行逐项解释：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>命令</th>
+<th>参数详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>快速侦察</strong></td>
+<td><code>nmap -F -T4 --open 192.168.1.1</code></td>
+<td><code>-F</code>：仅扫描 Nmap 默认服务文件（<code>nmap-services</code>）中标记为“最常用”的约 100 个端口，大幅缩短扫描时间。<br><code>-T4</code>：使用“激进”时序模板，加快扫描速度（适合可靠网络）。<br><code>--open</code>：仅显示状态为 <strong>open</strong> 或 **open</td>
+</tr>
+<tr>
+<td><strong>全面评估</strong></td>
+<td><code>nmap -sS -sU -T4 -A -v -p- --reason 192.168.1.1</code></td>
+<td><code>-sS</code>：TCP SYN 扫描（半开放），速度快且较隐蔽。<br><code>-sU</code>：同时进行 UDP 端口扫描（如 DNS、SNMP、DHCP 等）。<br><code>-T4</code>：激进速度。<br><code>-A</code>：启用操作系统探测（<code>-O</code>）、版本探测（<code>-sV</code>）、默认脚本（<code>-sC</code>）和路由跟踪（<code>--traceroute</code>）。<br><code>-v</code>：详细输出模式。<br><code>-p-</code>：扫描全部 65535 个端口。<br><code>--reason</code>：显示每个端口状态的判定依据（如 “syn-ack”、“reset” 等）。</td>
+</tr>
+<tr>
+<td><strong>隐蔽扫描</strong></td>
+<td><code>nmap -T2 -f -D RND:5 --max-parallelism 10 192.168.1.1</code></td>
+<td><code>-T2</code>：“礼貌”时序，降低发包速率，减少被 IDS 发现的概率。<br><code>-f</code>：将 IP 数据包分片（通常分成 8 字节片段），绕过某些基于完整包检测的防火墙。<br><code>-D RND:5</code>：生成 5 个随机诱饵 IP，与真实扫描源混在一起，混淆日志追踪（真实 IP 默认标记为 <code>ME</code>）。<br><code>--max-parallelism 10</code>：限制同时探测的端口数不超过 10，进一步降低流量特征。</td>
+</tr>
+<tr>
+<td><strong>Web 服务枚举</strong></td>
+<td><code>nmap -p 80,443,8080 --script http-title,http-headers,ssl-enum-ciphers 192.168.1.1</code></td>
+<td><code>-p 80,443,8080</code>：只扫描常见 Web 端口。<br><code>--script http-title</code>：获取网页 <code>&lt;title&gt;</code> 内容。<br><code>http-headers</code>：提取 HTTP 响应头（如 Server、X-Powered-By）。<br><code>ssl-enum-ciphers</code>：枚举目标支持的 SSL&#x2F;TLS 协议版本和加密套件，用于评估加密强度。</td>
+</tr>
+<tr>
+<td><strong>内网资产发现</strong></td>
+<td><code>nmap -sn 192.168.1.0/24 -oG live_hosts.txt &amp;&amp; awk &#39;/Up/&#123;print $2&#125;&#39; live_hosts.txt &gt; targets.txt</code></td>
+<td><code>-sn</code>：禁用端口扫描，仅执行主机发现（Ping 扫描）。<br><code>-oG</code>：以“grep 友好”格式输出结果（每行包含状态如 <code>Status: Up</code>）。<br><code>awk &#39;/Up/&#123;print $2&#125;&#39;</code>：从输出中提取状态为 “Up” 的 IP 地址（第2列）。<br>最终生成 <code>targets.txt</code> 供后续深度扫描使用。</td>
+</tr>
+<tr>
+<td><strong>漏洞扫描</strong></td>
+<td><code>nmap -sV --script vuln --script-args mincvss=7.0 192.168.1.1</code></td>
+<td><code>-sV</code>：探测服务版本，为漏洞匹配提供基础。<br><code>--script vuln</code>：运行所有归类为 “vuln” 的 NSE 脚本（如检测 Heartbleed、Shellshock、MS17-010 等）。<br><code>--script-args mincvss=7.0</code>：仅报告 CVSS 评分 ≥ 7.0 的高危&#x2F;严重漏洞（需脚本支持该参数）。</td>
+</tr>
+</tbody></table>
+<hr>
+<p>✅ <strong>使用建议</strong>：</p>
+<ul>
+<li>在渗透测试初期，优先使用 <strong>快速侦察</strong> 和 <strong>内网资产发现</strong>。</li>
+<li>对关键目标再执行 <strong>全面评估</strong> 或 <strong>漏洞扫描</strong>。</li>
+<li><strong>隐蔽扫描</strong> 适用于高安全环境或红队演练，但速度极慢。</li>
+</ul>
+<blockquote>
+<p>💡 提示：可通过 <code>nmap --script-help vuln</code> 查看当前系统支持哪些漏洞检测脚本及其参数。<br><code>--open</code>：仅显示开放端口，减少噪音。</p>
+</blockquote>
+<hr>
+<h2 id="安全与合规建议"><a href="#安全与合规建议" class="headerlink" title="安全与合规建议"></a>安全与合规建议</h2><p>✅ <strong>合法使用原则</strong>：</p>
+<ol>
+<li><strong>必须获得书面授权</strong>，禁止扫描非授权目标。</li>
+<li><strong>避免影响业务</strong>：使用 <code>-T2</code> 或 <code>--max-rate 50</code> 限制扫描强度。</li>
+<li><strong>记录操作</strong>：所有扫描应保留日志（<code>-oA</code> + 时间戳）。</li>
+<li><strong>遵守政策</strong>：了解目标组织的渗透测试政策（PTP）。</li>
+<li><strong>最小权限原则</strong>：仅扫描必要端口和服务。</li>
+</ol>
+<p>🛡️ <strong>防御建议（给系统管理员）</strong>：</p>
+<ul>
+<li>配置防火墙丢弃异常包（NULL&#x2F;Xmas&#x2F;FIN-only）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP</span><br><span class="line">iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP</span><br></pre></td></tr></table></figure></li>
+<li>启用 IDS（如 Suricata、Snort）检测 Nmap 扫描行为。</li>
+<li>关闭不必要的服务，减少攻击面。</li>
+</ul>
+<hr>
+<h2 id="总结备忘单"><a href="#总结备忘单" class="headerlink" title="总结备忘单"></a>总结备忘单</h2><table>
+<thead>
+<tr>
+<th>目的</th>
+<th>推荐命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主机发现</td>
+<td><code>nmap -sn 192.168.1.0/24</code></td>
+</tr>
+<tr>
+<td>快速端口扫描</td>
+<td><code>nmap -F -T4 192.168.1.1</code></td>
+</tr>
+<tr>
+<td>全面信息收集</td>
+<td><code>nmap -A -T4 192.168.1.1</code></td>
+</tr>
+<tr>
+<td>全端口+服务识别</td>
+<td><code>nmap -sV -p- -T4 192.168.1.1</code></td>
+</tr>
+<tr>
+<td>漏洞检测</td>
+<td><code>nmap --script vuln 192.168.1.1</code></td>
+</tr>
+<tr>
+<td>隐蔽扫描</td>
+<td><code>nmap -T2 -f -D RND:5 192.168.1.1</code></td>
+</tr>
+<tr>
+<td>结果归档</td>
+<td><code>nmap -oA scan_$(date +%Y%m%d) 192.168.1.1</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="附录：Nmap参数速查表"><a href="#附录：Nmap参数速查表" class="headerlink" title="附录：Nmap参数速查表"></a>附录：Nmap参数速查表</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-sS</code></td>
+<td>TCP SYN扫描</td>
+</tr>
+<tr>
+<td><code>-sT</code></td>
+<td>TCP Connect扫描</td>
+</tr>
+<tr>
+<td><code>-sU</code></td>
+<td>UDP扫描</td>
+</tr>
+<tr>
+<td><code>-sA</code></td>
+<td>ACK扫描</td>
+</tr>
+<tr>
+<td><code>-sP</code></td>
+<td>Ping扫描(主机发现)</td>
+</tr>
+<tr>
+<td><code>-sL</code></td>
+<td>列举目标(不扫描)</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>指定端口</td>
+</tr>
+<tr>
+<td><code>-p-</code></td>
+<td>扫描所有端口</td>
+</tr>
+<tr>
+<td><code>-sV</code></td>
+<td>服务版本探测</td>
+</tr>
+<tr>
+<td><code>-O</code></td>
+<td>操作系统识别</td>
+</tr>
+<tr>
+<td><code>-A</code></td>
+<td>全功能扫描(版本+OS+脚本)</td>
+</tr>
+<tr>
+<td><code>-T&lt;0-5&gt;</code></td>
+<td>扫描速度(0-慢,5-快)</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>禁止DNS解析</td>
+</tr>
+<tr>
+<td><code>-oN</code></td>
+<td>保存为普通文本</td>
+</tr>
+<tr>
+<td><code>-oX</code></td>
+<td>保存为XML格式</td>
+</tr>
+<tr>
+<td><code>--script</code></td>
+<td>使用NSE脚本</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://langye.xyz">langye123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://langye.xyz/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">https://langye.xyz/2025/12/14/nmap常用指令/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://langye.xyz" target="_blank">langye123的小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></div><div class="post_share"><div class="social-share" data-image="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/image/zhifubao.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/weixin.jpg" target="_blank"><img class="post-qr-code-img" src="/image/weixin.jpg" alt="支付"/></a><div class="post-qr-code-desc">支付</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2025/12/10/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%A2%AF%E5%AD%90/" title="第二次梯子"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第二次梯子</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/12/03/BurpSuite%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E6%80%9D%E8%80%83/" title="BurpSuite常见的问题和思考"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-03</div><div class="title">BurpSuite常见的问题和思考</div></div></a></div><div><a href="/2025/12/07/sqlmap%E4%BB%8E%E5%B0%8F%E7%99%BD%E5%88%B0%E5%AE%9E%E6%88%98/" title="sqlmap从小白到实战"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-07</div><div class="title">sqlmap从小白到实战</div></div></a></div><div><a href="/2024/08/01/linx%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85nginx,JDK%EF%BC%8Credis,mysql/" title="linux手动安装nginx,JDK，redis,mysql"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-01</div><div class="title">linux手动安装nginx,JDK，redis,mysql</div></div></a></div><div><a href="/2024/07/14/ssh%E5%85%AC%E9%92%A5%E6%9B%B4%E6%94%B9%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E6%B7%BB%E5%8A%A0/" title="ssh公钥更改，删除，添加"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-14</div><div class="title">ssh公钥更改，删除，添加</div></div></a></div><div><a href="/2024/09/01/websock/" title="websock"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-01</div><div class="title">websock</div></div></a></div><div><a href="/2024/10/02/ssl%E6%95%B0%E5%AD%97%E7%AE%A1%E7%90%86%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0/" title="数字管理证书更新"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-02</div><div class="title">数字管理证书更新</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">langye123</div><div class="author-info__description">不喜欢，不值得</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/langye123"><i class="fab fa-github"></i><span>call me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/langye123" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:langye666@139.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">深窥自己的心，而后发觉一切的奇迹在你自己</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nmap-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%8E%E6%8A%80%E5%B7%A7%E8%AF%A6%E8%A7%A3%EF%BC%88%E7%B2%BE%E7%BC%96%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">Nmap 常用指令与技巧详解（精编实战指南）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">基础扫描指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%8F%91%E7%8E%B0%EF%BC%88Ping-%E6%89%AB%E6%8F%8F%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">主机发现（Ping 扫描）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">基础端口扫描类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E9%80%89%E9%A1%B9"><span class="toc-number">1.3.</span> <span class="toc-text">端口扫描选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%8C%87%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">端口指定方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%89%AB%E6%8F%8F%E7%B1%BB%E5%9E%8B%EF%BC%88%E7%94%A8%E4%BA%8E%E7%BB%95%E8%BF%87%E7%AE%80%E5%8D%95%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">高级扫描类型（用于绕过简单防火墙）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E4%B8%8E%E7%89%88%E6%9C%AC%E6%8E%A2%E6%B5%8B"><span class="toc-number">1.4.</span> <span class="toc-text">服务与版本探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A2%E6%B5%8B"><span class="toc-number">1.5.</span> <span class="toc-text">操作系统探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NSE%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E"><span class="toc-number">1.6.</span> <span class="toc-text">NSE脚本引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="toc-number">1.6.1.</span> <span class="toc-text">基础使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E7%B1%BB%E5%88%AB"><span class="toc-number">1.6.2.</span> <span class="toc-text">常用脚本类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-number">1.6.3.</span> <span class="toc-text">高级用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E6%97%B6%E5%BA%8F%E4%BC%98%E5%8C%96"><span class="toc-number">1.7.</span> <span class="toc-text">性能与时序优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E6%A8%A1%E6%9D%BF%EF%BC%88-T0-%E5%88%B0-T5%EF%BC%89"><span class="toc-number">1.7.1.</span> <span class="toc-text">时序模板（-T0 到 -T5）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0"><span class="toc-number">1.7.2.</span> <span class="toc-text">自定义性能参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E4%B8%8E%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">输出与日志管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99-IDS%E7%BB%95%E8%BF%87%E6%8A%80%E5%B7%A7"><span class="toc-number">1.9.</span> <span class="toc-text">防火墙&#x2F;IDS绕过技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%89%87%E4%B8%8E%E6%B7%B7%E6%B7%86"><span class="toc-number">1.9.1.</span> <span class="toc-text">分片与混淆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B1%E9%A5%B5%E4%B8%8E%E6%AC%BA%E9%AA%97"><span class="toc-number">1.9.2.</span> <span class="toc-text">诱饵与欺骗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7"><span class="toc-number">1.9.3.</span> <span class="toc-text">其他技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4"><span class="toc-number">1.10.</span> <span class="toc-text">实战组合命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E4%B8%8E%E5%90%88%E8%A7%84%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.11.</span> <span class="toc-text">安全与合规建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%A4%87%E5%BF%98%E5%8D%95"><span class="toc-number">1.12.</span> <span class="toc-text">总结备忘单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9ANmap%E5%8F%82%E6%95%B0%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="toc-number">1.13.</span> <span class="toc-text">附录：Nmap参数速查表</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="nmap常用的指令">nmap常用的指令</a><time datetime="2025-12-13T16:00:00.000Z" title="发表于 2025-12-14 00:00:00">2025-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/10/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%A2%AF%E5%AD%90/" title="第二次梯子">第二次梯子</a><time datetime="2025-12-09T16:00:00.000Z" title="发表于 2025-12-10 00:00:00">2025-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/10/linux%E4%B8%ADssh%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/" title="无题">无题</a><time datetime="2025-12-09T16:00:00.000Z" title="发表于 2025-12-10 00:00:00">2025-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/09/%E4%B8%AD%E5%9B%BD%E8%9A%81%E5%89%91%E5%B7%A5%E5%85%B7/" title="中国蚁剑工具">中国蚁剑工具</a><time datetime="2025-12-08T16:00:00.000Z" title="发表于 2025-12-09 00:00:00">2025-12-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/09/linux%E4%B8%ADmysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%91%BD%E4%BB%A4/" title="linux中mysql常见问题与命令">linux中mysql常见问题与命令</a><time datetime="2025-12-08T16:00:00.000Z" title="发表于 2025-12-09 00:00:00">2025-12-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/08/DVWA%E9%9D%B6%E5%9C%BA%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/" title="DVWA靶场解题思路">DVWA靶场解题思路</a><time datetime="2025-12-07T16:00:00.000Z" title="发表于 2025-12-08 00:00:00">2025-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(91,126,168)"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By langye123</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://langye123.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'AGI3dysGvfIYIzn7hYDN0x7u-gzGzoHsz',
+      appKey: 'hNVVCVbUPKe5bnZljCguDEeZ',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://langye.xyz/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/'
+    this.page.identifier = '/2025/12/14/nmap%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/'
+    this.page.title = 'nmap常用的指令'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://langye123.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=langye123&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script src="/script/fish.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.8" zIndex="-1" count="200" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
