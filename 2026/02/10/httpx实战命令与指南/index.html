@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>httpx实战命令与指南 | langye123的小屋</title><meta name="author" content="langye123"><meta name="copyright" content="langye123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="✅ 一、确认 &#x2F; 安装 Go（Kali）1go version  如果没有，直接装（Kali 官方源）： 12sudo apt updatesudo apt install golang -y  装好再确认一次： 1go version   ✅ 二、安装 Go 版 httpx（ProjectDiscovery）1go install github.com&#x2F;projectdiscover">
+<meta property="og:type" content="article">
+<meta property="og:title" content="httpx实战命令与指南">
+<meta property="og:url" content="https://langye.xyz/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="langye123的小屋">
+<meta property="og:description" content="✅ 一、确认 &#x2F; 安装 Go（Kali）1go version  如果没有，直接装（Kali 官方源）： 12sudo apt updatesudo apt install golang -y  装好再确认一次： 1go version   ✅ 二、安装 Go 版 httpx（ProjectDiscovery）1go install github.com&#x2F;projectdiscover">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://langye.xyz/image/36f1c8882fad4d25ba54dbacb2d00bf3.png">
+<meta property="article:published_time" content="2026-02-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-10T07:57:05.476Z">
+<meta property="article:author" content="langye123">
+<meta property="article:tag" content="经验">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://langye.xyz/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"><link rel="shortcut icon" href="/image/xuanzhuandeshuilangbeijinghua4041924.jpg"><link rel="canonical" href="https://langye.xyz/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'httpx实战命令与指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-02-10 15:57:05'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/77777777.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="langye123的小屋"><img class="site-icon" src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png"/><span class="site-name">langye123的小屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">httpx实战命令与指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-09T16:00:00.000Z" title="发表于 2026-02-10 00:00:00">2026-02-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-10T07:57:05.476Z" title="更新于 2026-02-10 15:57:05">2026-02-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="httpx实战命令与指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h2 id="✅-一、确认-安装-Go（Kali）"><a href="#✅-一、确认-安装-Go（Kali）" class="headerlink" title="✅ 一、确认 &#x2F; 安装 Go（Kali）"></a>✅ 一、确认 &#x2F; 安装 Go（Kali）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<p>如果<strong>没有</strong>，直接装（Kali 官方源）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install golang -y</span><br></pre></td></tr></table></figure>
+
+<p>装好再确认一次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-二、安装-Go-版-httpx（ProjectDiscovery）"><a href="#✅-二、安装-Go-版-httpx（ProjectDiscovery）" class="headerlink" title="✅ 二、安装 Go 版 httpx（ProjectDiscovery）"></a>✅ 二、安装 Go 版 httpx（ProjectDiscovery）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/projectdiscovery/httpx/cmd/httpx@latest</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，二进制在：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/go/bin/httpx</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-三、加入-PATH"><a href="#✅-三、加入-PATH" class="headerlink" title="✅ 三、加入 PATH"></a>✅ 三、加入 PATH</h2><h3 id="✅-正确做法：为-Zsh-配置-PATH"><a href="#✅-正确做法：为-Zsh-配置-PATH" class="headerlink" title="✅ 正确做法：为 Zsh 配置 PATH"></a>✅ 正确做法：为 Zsh 配置 PATH</h3><p>既然你使用的是 <strong>Zsh</strong>，应将环境变量写入 <strong>Zsh 的配置文件</strong>，通常是：</p>
+<ul>
+<li><code>~/.zshrc</code>（用户级）</li>
+<li>或 <code>~/.profile</code>（通用，但优先级较低）</li>
+</ul>
+<h4 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h4><ol>
+<li><p>**编辑 <code>~/.zshrc</code>**：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;$PATH:$HOME/go/bin&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>重新加载 Zsh 配置</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p><strong>这个时候已经可以httpx-h</strong></p>
+</li>
+</ol>
+<h3 id="🛠️-额外建议"><a href="#🛠️-额外建议" class="headerlink" title="🛠️ 额外建议"></a>🛠️ 额外建议</h3><ul>
+<li><p><strong>确认当前 shell</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line"><span class="comment"># 通常输出 /bin/zsh</span></span><br><span class="line">ps -p $$</span><br><span class="line"><span class="comment"># 查看当前进程 shell</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>避免混用配置文件</strong>：</p>
+<ul>
+<li>Bash 用户：用 <code>~/.bashrc</code> 或 <code>~/.bash_profile</code></li>
+<li>Zsh 用户：用 <code>~/.zshrc</code></li>
+<li>通用环境变量（如 <code>PATH</code>）也可写入 <code>~/.profile</code>，但需确保被 shell 加载</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建go版httpx（可选如果httpx命令失效就这样办）"><a href="#创建go版httpx（可选如果httpx命令失效就这样办）" class="headerlink" title="创建go版httpx（可选如果httpx命令失效就这样办）"></a>创建go版httpx（可选如果httpx命令失效就这样办）</h3><p><code>ln -s ~/go/bin/httpx ~/go/bin/httpx_go</code></p>
+<h2 id="常见的命令参数"><a href="#常见的命令参数" class="headerlink" title="常见的命令参数"></a>常见的命令参数</h2><h3 id="✅-httpx-常用命令行参数详解表"><a href="#✅-httpx-常用命令行参数详解表" class="headerlink" title="✅ httpx 常用命令行参数详解表"></a>✅ <code>httpx</code> 常用命令行参数详解表</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>全称 &#x2F; 别名</th>
+<th>作用说明</th>
+<th>典型用法示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-u</code></td>
+<td><code>--url</code></td>
+<td>指定单个目标 URL 或主机名</td>
+<td><code>httpx -u https://example.com</code></td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td><code>--list</code></td>
+<td>从文件中读取多个目标（支持域名、IP、CIDR、URL 混合）</td>
+<td><code>httpx -l targets.txt</code></td>
+</tr>
+<tr>
+<td><code>-silent</code></td>
+<td>—</td>
+<td>静默模式：仅输出结果 URL，无额外信息</td>
+<td><code>httpx -l subs.txt -silent</code></td>
+</tr>
+<tr>
+<td><code>-status-code</code></td>
+<td>—</td>
+<td>在输出中显示 HTTP 状态码</td>
+<td><code>httpx -l subs.txt -status-code</code></td>
+</tr>
+<tr>
+<td><code>-title</code></td>
+<td>—</td>
+<td>提取并显示网页 <code>&lt;title&gt;</code> 标签内容</td>
+<td><code>httpx -l subs.txt -title</code></td>
+</tr>
+<tr>
+<td><code>-tech-detect</code></td>
+<td>—</td>
+<td>启用技术栈识别（基于 Wappalyzer 规则）</td>
+<td><code>httpx -u site.com -tech-detect</code></td>
+</tr>
+<tr>
+<td><code>-ip</code></td>
+<td>—</td>
+<td>显示目标解析出的 IP 地址</td>
+<td><code>httpx -u example.com -ip</code></td>
+</tr>
+<tr>
+<td><code>-server</code></td>
+<td>—</td>
+<td>显示 HTTP 响应头中的 <code>Server</code> 字段</td>
+<td><code>httpx -u example.com -server</code></td>
+</tr>
+<tr>
+<td><code>-json</code></td>
+<td>—</td>
+<td>以 JSON 格式输出完整结果（含状态码、标题、IP、技术栈等）</td>
+<td><code>httpx -u example.com -json</code></td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td><code>--ports</code></td>
+<td>指定要探测的端口列表（配合 CIDR 或主机使用）</td>
+<td><code>httpx -u 192.168.1.1 -p 80,443,8080</code></td>
+</tr>
+<tr>
+<td><code>-follow-redirects</code></td>
+<td><code>-fr</code></td>
+<td>自动跟随 HTTP 重定向（301&#x2F;302）</td>
+<td><code>httpx -u short.url -follow-redirects</code></td>
+</tr>
+<tr>
+<td><code>-location</code></td>
+<td>—</td>
+<td>输出最终跳转后的 URL（需配合 <code>-follow-redirects</code>）</td>
+<td><code>httpx -u t.cn/xxx -fr -location</code></td>
+</tr>
+<tr>
+<td><code>-H</code></td>
+<td><code>--header</code></td>
+<td>添加自定义 HTTP 请求头（可多次使用）</td>
+<td><code>httpx -u site.com -H &quot;X-Forwarded-For: 127.0.0.1&quot;</code></td>
+</tr>
+<tr>
+<td><code>-mc</code></td>
+<td><code>--match-code</code></td>
+<td>仅输出匹配指定状态码的结果</td>
+<td><code>httpx -l all.txt -mc 200,302</code></td>
+</tr>
+<tr>
+<td><code>-fc</code></td>
+<td><code>--filter-code</code></td>
+<td>过滤掉指定状态码的结果（排除）</td>
+<td><code>httpx -l all.txt -fc 404,500</code></td>
+</tr>
+<tr>
+<td><code>-ml</code></td>
+<td><code>--match-length</code></td>
+<td>仅输出响应体长度匹配的项</td>
+<td><code>httpx -l urls.txt -ml 1234</code></td>
+</tr>
+<tr>
+<td><code>-fl</code></td>
+<td><code>--filter-length</code></td>
+<td>排除指定响应长度的结果</td>
+<td><code>httpx -l urls.txt -fl 0,23</code></td>
+</tr>
+<tr>
+<td><code>-threads</code></td>
+<td><code>-t</code></td>
+<td>设置并发线程数（默认 50）</td>
+<td><code>httpx -l big.txt -threads 100</code></td>
+</tr>
+<tr>
+<td><code>-timeout</code></td>
+<td>—</td>
+<td>设置每个请求的超时时间（秒，默认 10）</td>
+<td><code>httpx -u slow.site -timeout 5</code></td>
+</tr>
+<tr>
+<td><code>-rate-limit</code></td>
+<td>—</td>
+<td>限制每秒请求数（避免触发风控）</td>
+<td><code>httpx -l targets.txt -rate-limit 30</code></td>
+</tr>
+<tr>
+<td><code>--http2</code></td>
+<td>—</td>
+<td>强制使用或检测 HTTP&#x2F;2 协议支持</td>
+<td><code>httpx -u https://site.com --http2</code></td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td><code>--output</code></td>
+<td>将结果保存到文件</td>
+<td><code>httpx -l subs.txt -silent -o live.txt</code></td>
+</tr>
+<tr>
+<td><code>-vhost</code></td>
+<td>—</td>
+<td>启用虚拟主机（VHost）模糊测试（需配合字典）</td>
+<td><code>httpx -u example.com -vhost -w vhosts.txt</code></td>
+</tr>
+<tr>
+<td><code>-path</code></td>
+<td>—</td>
+<td>对每个目标追加指定路径进行探测</td>
+<td><code>httpx -l ips.txt -path /admin,/login</code></td>
+</tr>
+<tr>
+<td><code>-random-agent</code></td>
+<td>—</td>
+<td>使用随机 User-Agent 发送请求</td>
+<td><code>httpx -u site.com -random-agent</code></td>
+</tr>
+<tr>
+<td><code>-no-color</code></td>
+<td>—</td>
+<td>禁用彩色输出（适合日志记录）</td>
+<td><code>httpx -l subs.txt -no-color</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p>以下是 <strong>最新版 <code>httpx</code>（Go 编译的 ProjectDiscovery HTTPX）实战命令清单</strong>，以 <strong>表格形式</strong> 呈现，包含 <strong>命令、用途说明、典型场景</strong> 三列，便于快速查阅与实战使用：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令（使用 <code>httpx</code>）</th>
+<th>用途说明</th>
+<th>典型应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>echo &quot;example.com&quot; | httpx -silent</code></td>
+<td>静默探测单个目标是否存活</td>
+<td>快速验证单个域名&#x2F;主机是否提供 Web 服务</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>subfinder -d example.com -silent | httpx -silent -o live.txt</code></td>
+<td>联动 Subfinder 枚举并筛选存活子域</td>
+<td>子域名资产收集 → 存活过滤，构建初始攻击面</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>cat domains.txt | httpx -status-code -tech-detect -silent</code></td>
+<td>输出状态码 + 技术栈指纹（如 Nginx、PHP）</td>
+<td>初步识别目标技术架构，辅助漏洞匹配</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>httpx -u 192.168.1.0/24 -p 80,443,8080,8443 -silent</code></td>
+<td>对 CIDR 网段指定端口进行 HTTP 探测</td>
+<td>内网横向时快速发现 Web 管理界面或 API</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>httpx -u https://target.com --http2 -silent</code></td>
+<td>检测目标是否支持 HTTP&#x2F;2 协议</td>
+<td>协议层面信息收集，辅助高级利用（如 HTTP&#x2F;2 Smuggling）</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>httpx -l urls.txt -follow-redirects -location -silent</code></td>
+<td>跟随重定向并输出最终跳转地址</td>
+<td>解析短链接、登录跳转页、CDN 回源地址等</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>httpx -u target.com -H &quot;User-Agent: Mozilla/5.0...&quot; -silent</code></td>
+<td>自定义请求头（如 User-Agent）</td>
+<td>绕过基于 UA 的简单 WAF 或爬虫拦截</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>cat targets.txt | httpx -rate-limit 50 -threads 20 -silent</code></td>
+<td>限速（50 req&#x2F;s）+ 并发（20 线程）</td>
+<td>大规模扫描时避免触发 IP 封禁或 DoS 防护</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>httpx -u example.com -json -silent</code></td>
+<td>输出结构化 JSON 格式结果</td>
+<td>供 Python&#x2F;Shell 脚本解析，用于自动化流水线</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>cat all.txt | httpx -status-code -mc 200,302 -silent</code></td>
+<td>仅保留状态码为 200 或 302 的结果</td>
+<td>聚焦“有效页面”，排除 404&#x2F;5xx 干扰项</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>httpx -u target.com -ip -title -server -silent</code></td>
+<td>显示目标 IP、页面标题、Server 头</td>
+<td>辅助判断是否使用 Cloudflare、WAF 或云厂商</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>httpx -l assets.txt -silent -o results.txt</code></td>
+<td>从混合输入文件（域名&#x2F;IP&#x2F;CIDR&#x2F;URL）批量探测</td>
+<td>支持多种格式输入，适用于复杂资产列表</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>httpx -u slow-target.com -timeout 5 -silent</code></td>
+<td>设置总超时为 5 秒</td>
+<td>避免因个别慢响应拖慢整体扫描进度</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>subfinder -d example.com | httpx -silent | nuclei -t cves/</code></td>
+<td>与 Nuclei 联动实现“枚举→探活→漏洞扫描”</td>
+<td>标准化渗透测试信息收集到漏洞验证流程</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>ln -s ~/go/bin/httpx ~/go/bin/httpx</code></td>
+<td>创建软链接别名 <code>httpx</code></td>
+<td>避免与系统可能存在的 <code>python3-httpx</code> 冲突</td>
+</tr>
+</tbody></table>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://langye.xyz">langye123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://langye.xyz/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/">https://langye.xyz/2026/02/10/httpx实战命令与指南/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://langye.xyz" target="_blank">langye123的小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></div><div class="post_share"><div class="social-share" data-image="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/image/zhifubao.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/weixin.jpg" target="_blank"><img class="post-qr-code-img" src="/image/weixin.jpg" alt="支付"/></a><div class="post-qr-code-desc">支付</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2026/02/09/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E6%96%87%E4%BB%B6MD5/" title="二进制与文件MD5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">二进制与文件MD5</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/12/03/BurpSuite%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E6%80%9D%E8%80%83/" title="BurpSuite常见的问题和思考"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-03</div><div class="title">BurpSuite常见的问题和思考</div></div></a></div><div><a href="/2026/01/26/Fail2ban%E5%91%BD%E4%BB%A4%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="Fail2ban命令与使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-26</div><div class="title">Fail2ban命令与使用指南</div></div></a></div><div><a href="/2025/12/15/OneForAll%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E4%BD%BF%E7%94%A8/" title="OneForAll从安装到使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-15</div><div class="title">OneForAll从安装到使用</div></div></a></div><div><a href="/2026/01/02/WpScan%E5%B0%8F%E7%99%BD%E5%88%B0%E5%AE%9E%E6%88%98/" title="WpScan小白到实战"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-02</div><div class="title">WpScan小白到实战</div></div></a></div><div><a href="/2025/12/16/docker%20BeEf%20%20%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="docker BeEf搭建与常用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-16</div><div class="title">docker BeEf搭建与常用命令</div></div></a></div><div><a href="/2025/12/18/dirsearch%E5%AE%89%E8%A3%85%E5%88%B0%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4/" title="dirsearch安装到实战命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="title">dirsearch安装到实战命令</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/36f1c8882fad4d25ba54dbacb2d00bf3.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">langye123</div><div class="author-info__description">不喜欢，不值得</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/langye123"><i class="fab fa-github"></i><span>call me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/langye123" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="mailto:langye666@139.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">深窥自己的心，而后发觉一切的奇迹在你自己</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%B8%80%E3%80%81%E7%A1%AE%E8%AE%A4-%E5%AE%89%E8%A3%85-Go%EF%BC%88Kali%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">✅ 一、确认 &#x2F; 安装 Go（Kali）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-Go-%E7%89%88-httpx%EF%BC%88ProjectDiscovery%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">✅ 二、安装 Go 版 httpx（ProjectDiscovery）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%B8%89%E3%80%81%E5%8A%A0%E5%85%A5-PATH"><span class="toc-number">3.</span> <span class="toc-text">✅ 三、加入 PATH</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%EF%BC%9A%E4%B8%BA-Zsh-%E9%85%8D%E7%BD%AE-PATH"><span class="toc-number">3.1.</span> <span class="toc-text">✅ 正确做法：为 Zsh 配置 PATH</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">3.1.1.</span> <span class="toc-text">步骤如下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E9%A2%9D%E5%A4%96%E5%BB%BA%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">🛠️ 额外建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgo%E7%89%88httpx%EF%BC%88%E5%8F%AF%E9%80%89%E5%A6%82%E6%9E%9Chttpx%E5%91%BD%E4%BB%A4%E5%A4%B1%E6%95%88%E5%B0%B1%E8%BF%99%E6%A0%B7%E5%8A%9E%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">创建go版httpx（可选如果httpx命令失效就这样办）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">常见的命令参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-httpx-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3%E8%A1%A8"><span class="toc-number">4.1.</span> <span class="toc-text">✅ httpx 常用命令行参数详解表</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/" title="httpx实战命令与指南">httpx实战命令与指南</a><time datetime="2026-02-09T16:00:00.000Z" title="发表于 2026-02-10 00:00:00">2026-02-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/09/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E6%96%87%E4%BB%B6MD5/" title="二进制与文件MD5">二进制与文件MD5</a><time datetime="2026-02-08T16:00:00.000Z" title="发表于 2026-02-09 00:00:00">2026-02-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/05/%E6%8C%87%E7%BA%B9TideFinger%E5%92%8CWhatweb%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4/" title="指纹TideFinger和Whatweb安装以及实战命令">指纹TideFinger和Whatweb安装以及实战命令</a><time datetime="2026-02-04T16:00:00.000Z" title="发表于 2026-02-05 00:00:00">2026-02-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/31/%E6%B8%97%E9%80%8Flinux%E5%91%BD%E4%BB%A4/" title="渗透linux命令">渗透linux命令</a><time datetime="2026-01-30T16:00:00.000Z" title="发表于 2026-01-31 00:00:00">2026-01-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/28/%E5%88%9D%E8%AF%95%E6%8F%90%E6%9D%83/" title="初试提权">初试提权</a><time datetime="2026-01-27T16:00:00.000Z" title="发表于 2026-01-28 00:00:00">2026-01-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/27/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99+binwalk+010Editor/" title="图片隐写+binwalk+010Editor+pdftotext">图片隐写+binwalk+010Editor+pdftotext</a><time datetime="2026-01-26T16:00:00.000Z" title="发表于 2026-01-27 00:00:00">2026-01-27</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(91,126,168)"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By langye123</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://langye123.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'AGI3dysGvfIYIzn7hYDN0x7u-gzGzoHsz',
+      appKey: 'hNVVCVbUPKe5bnZljCguDEeZ',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://langye.xyz/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/'
+    this.page.identifier = '/2026/02/10/httpx%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%8C%87%E5%8D%97/'
+    this.page.title = 'httpx实战命令与指南'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://langye123.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=langye123&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script src="/script/fish.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.8" zIndex="-1" count="200" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
