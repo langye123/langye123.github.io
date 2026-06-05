@@ -4,16 +4,16 @@
   
     
     <entry>
-      <title>ida pro+mcp+claude code</title>
-      <link href="/2026/05/31/ida%20pro+mcp+claude%20code/"/>
-      <url>/2026/05/31/ida%20pro+mcp+claude%20code/</url>
+      <title>pyinstaller封装为exe</title>
+      <link href="/2026/06/05/pyinstaller%E5%B0%81%E8%A3%85%E4%B8%BAexe/"/>
+      <url>/2026/06/05/pyinstaller%E5%B0%81%E8%A3%85%E4%B8%BAexe/</url>
       
-        <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>通过插件的形式安装</p><p><code>pip install uv</code></p><p><code>uv run &quot;F:\ida9.3\ida\idalib\python\py-activate-idalib.py&quot;</code></p><p> 第一条：添加插件市场</p><p><code>claude plugin marketplace add mrexodia/claude-marketplace</code></p><p>#第二条：安装 MCP 插件</p><p><code>claude plugin install ida-pro-mcp@mrexodia</code></p><p>idalib 模式是官方推荐的方向 插件模式的无头模式</p><p>gui的这种会被替代，配置了mcp GUI    ida-gui </p><h2 id="各个ai配置汉化"><a href="#各个ai配置汉化" class="headerlink" title="各个ai配置汉化"></a>各个ai配置汉化</h2><p>claude 它是安装桌面版的时候自己安装命令模式的，要求，node 20以上。第一次运行的时候在tun模式下，要不然直接报错。<br>然后配置文件在<code> C:\Users\langye\.claude\settings.json</code> 里面可以编辑mcp,和代理商api中转站。现在里面有burp,和ida的插件</p><p>vscode 里面安装claude 然后可以安装汉化插件。</p>]]></content>
+        <content type="html"><![CDATA[<p>将 Python 脚本封装成 <code>.exe</code> 可执行文件，最常用且稳定的工具是 <strong>PyInstaller</strong>。它能自动打包脚本及其所有依赖库（如 <code>psutil</code>、<code>pywin32</code>），生成一个无需安装 Python 环境即可双击运行的独立程序。以下是完整操作流程：</p><h3 id="一、安装-PyInstaller"><a href="#一、安装-PyInstaller" class="headerlink" title="一、安装 PyInstaller"></a>一、安装 PyInstaller</h3><p>打开 PyCharm 的终端（Terminal），确保已激活虚拟环境，运行以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure><p>如果下载缓慢，可使用国内镜像源加速：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure><h3 id="二、执行打包命令"><a href="#二、执行打包命令" class="headerlink" title="二、执行打包命令"></a>二、执行打包命令</h3><p>在终端中进入你的脚本所在目录，运行以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F -n <span class="string">&quot;查找小程序PID&quot;</span> find_wx_pid.py</span><br></pre></td></tr></table></figure><ul><li><code>-F</code>：打包成单个 <code>.exe</code> 文件（推荐，方便分发）。</li><li><code>-n &quot;查找小程序PID&quot;</code>：指定生成的 exe 文件名（可自定义）。</li><li><code>find_wx_pid.py</code>：你的 Python 脚本文件名。</li></ul><p>打包完成后，会在当前目录下生成 <code>dist/</code> 文件夹，里面包含最终的 <code>.exe</code> 文件。</p><h3 id="三、运行与测试"><a href="#三、运行与测试" class="headerlink" title="三、运行与测试"></a>三、运行与测试</h3><p>双击 <code>dist/查找小程序PID.exe</code> 即可运行。程序会弹出命令行窗口，提示你输入关键词进行搜索。</p><h3 id="四、进阶优化建议"><a href="#四、进阶优化建议" class="headerlink" title="四、进阶优化建议"></a>四、进阶优化建议</h3><ul><li><strong>隐藏黑窗口</strong>：如果你希望运行时不显示命令行窗口（仅用于后台或 GUI 程序），可加 <code>-w</code> 参数：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F -w -n <span class="string">&quot;查找小程序PID&quot;</span> find_wx_pid.py</span><br></pre></td></tr></table></figure><blockquote><p>注意：加了 <code>-w</code> 后，<code>input()</code> 和 <code>print()</code> 将无法显示，需改用 GUI 弹窗或日志输出。</p></blockquote></li><li><strong>添加图标</strong>：可为 exe 添加自定义图标，提升专业感：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F -i icon.ico -n <span class="string">&quot;查找小程序PID&quot;</span> find_wx_pid.py</span><br></pre></td></tr></table></figure><blockquote><p>图标文件必须是 <code>.ico</code> 格式，且与脚本在同一目录。</p></blockquote></li><li><strong>清理缓存</strong>：每次打包前建议删除 <code>build/</code> 和 <code>__pycache__/</code> 文件夹，避免旧缓存干扰。</li></ul><h3 id="五、常见问题排查"><a href="#五、常见问题排查" class="headerlink" title="五、常见问题排查"></a>五、常见问题排查</h3><ul><li><strong>打包后闪退</strong>：通常是因为缺少依赖或路径错误。可在打包时加 <code>--debug=all</code> 参数查看日志：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F --debug=all -n <span class="string">&quot;查找小程序PID&quot;</span> find_wx_pid.py</span><br></pre></td></tr></table></figure></li><li><strong>权限问题</strong>：若程序需要访问系统进程或注册表，建议右键 exe → “以管理员身份运行”。</li><li><strong>杀毒软件误报</strong>：部分杀毒软件会将 PyInstaller 打包的程序误判为病毒，可将 <code>dist/</code> 文件夹加入白名单。</li></ul>]]></content>
       
       
       <categories>
           
-          <category> 逆向 </category>
+          <category> python </category>
           
       </categories>
       
@@ -29,16 +29,16 @@
     
     
     <entry>
-      <title>codex教程</title>
-      <link href="/2026/05/24/codex/"/>
-      <url>/2026/05/24/codex/</url>
+      <title>ida pro+mcp+claude code</title>
+      <link href="/2026/05/31/ida%20pro+mcp+claude%20code/"/>
+      <url>/2026/05/31/ida%20pro+mcp+claude%20code/</url>
       
-        <content type="html"><![CDATA[<h2 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h2><p>因为本地无法登录使用codex,所以用了CC_switch进行转发，这个可以直接转发兼容cloude code的api,记得开启路由钻发就行<br>还有就是可以通过ccx转发给CC_switch再转发给codex</p><p>ccx 配置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PORT=3000</span><br><span class="line">ENV=production</span><br><span class="line">ENABLE_WEB_UI=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 客户端调用时需要的鉴权密钥</span></span><br><span class="line">PROXY_ACCESS_KEY=*******</span><br><span class="line"><span class="comment"># Web管理后台登录密码（和你要求的一样，设为相同的值）</span></span><br><span class="line">ADMIN_ACCESS_KEY=******</span><br><span class="line"><span class="comment"># 设置面板语言为中文</span></span><br><span class="line">APP_UI_LANGUAGE=zh-CN</span><br></pre></td></tr></table></figure><p>codex 无法登录</p><p><a href="https://fengfengzhidao.github.io/session-to-authjson/">这个进行转换</a></p><p><a href="https://chatgpt.com/api/auth/session">这个用来获取sign</a></p><p>在替换到.codex文件夹</p><h2 id="codex"><a href="#codex" class="headerlink" title="codex"></a>codex</h2><p>C:\Users\langye.codex.env里面可以写入配置代理</p><p><code>HTTP_PROXY=http://127.0.0.1:10808 HTTPS_PROXY=http://127.0.0.1:10808 ALL_PROXY=http://127.0.0.1:10808 NO_PROXY=localhost,127.0.0.1</code></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>通过插件的形式安装</p><p><code>pip install uv</code></p><p><code>uv run &quot;F:\ida9.3\ida\idalib\python\py-activate-idalib.py&quot;</code></p><p> 第一条：添加插件市场</p><p><code>claude plugin marketplace add mrexodia/claude-marketplace</code></p><p>#第二条：安装 MCP 插件</p><p><code>claude plugin install ida-pro-mcp@mrexodia</code></p><p>idalib 模式是官方推荐的方向 插件模式的无头模式</p><p>gui的这种会被替代，配置了mcp GUI    ida-gui </p><h2 id="各个ai配置汉化"><a href="#各个ai配置汉化" class="headerlink" title="各个ai配置汉化"></a>各个ai配置汉化</h2><p>claude 它是安装桌面版的时候自己安装命令模式的，要求，node 20以上。第一次运行的时候在tun模式下，要不然直接报错。<br>然后配置文件在<code> C:\Users\langye\.claude\settings.json</code> 里面可以编辑mcp,和代理商api中转站。现在里面有burp,和ida的插件</p><p>vscode 里面安装claude 然后可以安装汉化插件。</p>]]></content>
       
       
       <categories>
           
-          <category> AI </category>
+          <category> 逆向 </category>
           
       </categories>
       
